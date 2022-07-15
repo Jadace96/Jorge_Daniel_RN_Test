@@ -65,3 +65,13 @@ export const getRange = (start = 0, end = start + 19, interval = 0) => {
 
 	return arr;
 };
+
+export const getFilteredValuesByName = (
+	data: Array<{ [key: string]: unknown }>,
+	valueToFilter: string,
+): any => {
+	const pattern = new RegExp(valueToFilter, 'i');
+	const filteredData = data?.filter((item: any) => pattern.test(item?.name));
+
+	return valueToFilter?.length > 0 ? filteredData : [];
+};

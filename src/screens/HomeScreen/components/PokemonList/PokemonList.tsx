@@ -13,10 +13,15 @@ import { PokemonDataMappedTypes } from '../../types';
 
 type PokemonListPropTypes = {
 	onLoadMore: () => void;
+	shouldEnableLoadMore: boolean;
 	data: Array<PokemonDataMappedTypes>;
 };
 
-export function PokemonList({ data, onLoadMore }: PokemonListPropTypes) {
+export function PokemonList({
+	data,
+	onLoadMore,
+	shouldEnableLoadMore = true,
+}: PokemonListPropTypes) {
 	return (
 		<FlatList
 			data={data}
@@ -29,8 +34,8 @@ export function PokemonList({ data, onLoadMore }: PokemonListPropTypes) {
 					<PokemonBox id={item?.id} name={item?.name} imgUri={item?.imgUri} />
 				</View>
 			)}
-			onEndReached={onLoadMore}
-			onEndReachedThreshold={-0.1}
+			onEndReached={shouldEnableLoadMore ? onLoadMore : null}
+			onEndReachedThreshold={shouldEnableLoadMore ? 0.5 : null}
 		/>
 	);
 }

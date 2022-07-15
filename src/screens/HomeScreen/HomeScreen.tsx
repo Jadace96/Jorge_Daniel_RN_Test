@@ -3,6 +3,9 @@ import React, { useState } from 'react';
 import { View, Text } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
+// utils
+import { getFilteredValuesByName } from '../../utils';
+
 // components
 import { PokemonList } from './components';
 import { RenderIf, SearchBar, LoaderComponent } from '../../components';
@@ -16,19 +19,25 @@ import { PATHS } from '../../constants/Paths';
 // styles
 import { styles } from './HomeScreenStyles';
 
+// types
+import { PokemonDataMappedTypes } from './types';
+
 export const Home = () => {
 	const navigation = useNavigation();
 	const { getPokemons, pokemonsData, isFetching, isError } = usePokemon();
 
-	const [searchValue, setSearchValue] = useState('');
+	const [filteredPokemons, setFilteredPokemons] = useState<
+		Array<PokemonDataMappedTypes>
+	>([]);
 
 	const onPressItem = () => {
 		navigation.navigate(PATHS.POKEMON_DETAILS);
 	};
 
-	const onSearhTextChange = (value: string) => {
-		console.log('value =>>>> ', value);
-		setSearchValue(value);
+	const onSearchBarChange = (value: string) => {
+		const filteredPokemonsByName = getFilteredValuesByName(pokemonsData, value);
+
+		setFilteredPokemons(filteredPokemonsByName);
 	};
 
 	if (isError) {
@@ -37,11 +46,12 @@ export const Home = () => {
 
 	return (
 		<View style={styles.container}>
-			<SearchBar onChangeText={onSearhTextChange} />
+			<SearchBar onChangeText={onSearchBarChange} />
 			<RenderIf condition={isFetching} component={<LoaderComponent />} />
 			<PokemonList
-				data={pokemonsData}
-				onLoadMore={() => getPokemons(pokemonsData?.length)}
+				shouldEnableLoadMore={filteredPokemons?.length === 0}
+				onLoadMore={getPokemons}
+				data={filteredPokemons?.length > 0 ? filteredPokemons : pokemonsData}
 			/>
 		</View>
 	);

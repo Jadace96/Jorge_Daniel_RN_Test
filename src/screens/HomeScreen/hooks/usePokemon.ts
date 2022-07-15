@@ -20,7 +20,6 @@ export const usePokemon = () => {
 
 	const onFetchPokemonsDataSuccess = (data: Array<PokemonDataMappedTypes>) => {
 		const updatedPokemonsData = [...pokemonsData, ...data];
-		debugger;
 		setIsSuccess(true);
 		setPokemonsData(updatedPokemonsData);
 	};

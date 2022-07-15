@@ -18,21 +18,14 @@ type SearchBarPropTypes = {
 };
 
 export function SearchBar({ onChangeText }: SearchBarPropTypes) {
-	const [textInputValue, setTextInputValue] = useState('');
-
-	useEffect(() => {
-		onChangeText(textInputValue);
-	}, [textInputValue]);
-
 	return (
 		<View style={styles.container}>
 			<AntDesign name="search1" size={20} color={colors.text.secondary} />
 			<TextInput
 				placeholder="Search"
-				// value={textInputValue}
 				style={styles.textInput}
-				placeholderTextColor={colors.text.secondary}
 				onChangeText={debounce(onChangeText)}
+				placeholderTextColor={colors.text.secondary}
 			/>
 		</View>
 	);
