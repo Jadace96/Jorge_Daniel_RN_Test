@@ -20,7 +20,7 @@ export const styles = StyleSheet.create({
 	},
 
 	textInput: {
-		width: '78%',
+		flex: 1,
 		marginLeft: 8,
 		height: '100%',
 		marginRight: 15,

@@ -25,16 +25,17 @@ export const styles = StyleSheet.create({
 		marginBottom: 5,
 	},
 	fullImage: {
-		width: 200,
-		height: 200,
-		marginBottom: 5,
+		width: 250,
+		height: 250,
+		marginTop: 5,
+		marginBottom: 15,
 	},
 	text: {
-		fontSize: 17,
+		fontSize: 18,
 		fontWeight: '600',
 	},
 	smalText: {
-		fontSize: 13,
+		fontSize: 15,
 		marginBottom: 15,
 	},
 	fullDetailsContainer: {

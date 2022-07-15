@@ -28,6 +28,7 @@ export function RootNavigator() {
 				component={Home}
 				options={{
 					title: 'Pokemon List',
+					headerTitleAlign: 'center',
 				}}
 			/>
 			<Stack.Screen
@@ -35,6 +36,7 @@ export function RootNavigator() {
 				component={PokemonDetails}
 				options={{
 					title: 'Pokemon Details',
+					headerTitleAlign: 'center',
 					headerLeft: () => (
 						<AntDesign
 							onPress={navigation.goBack}
