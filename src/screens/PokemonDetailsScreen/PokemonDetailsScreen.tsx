@@ -5,7 +5,7 @@ import { ScrollView, View, Text } from 'react-native';
 // styles
 import { styles } from './PokemonDetailsScreenStyles';
 
-export function PokemonDetailsScreen() {
+export function PokemonDetails() {
 	return (
 		<ScrollView style={styles.scrollContainer}>
 			<View style={styles.container}>

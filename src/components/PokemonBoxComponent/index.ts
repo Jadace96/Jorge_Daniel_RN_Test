@@ -1,0 +1,1 @@
+export { PokemonBox } from './PokemonBoxComponent';

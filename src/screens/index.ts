@@ -1,2 +1,2 @@
-export { HomeScreen } from './HomeScreen';
-export { PokemonDetailsScreen } from './PokemonDetailsScreen';
+export { Home } from './HomeScreen';
+export { PokemonDetails } from './PokemonDetailsScreen';

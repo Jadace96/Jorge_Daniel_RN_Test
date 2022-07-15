@@ -1,0 +1,1 @@
+export { pokemonDataMapper } from './PokemonMapper';

@@ -14,7 +14,7 @@ export type RootStackParamList = {
 };
 
 // screens
-import { HomeScreen, PokemonDetailsScreen } from '../screens';
+import { Home, PokemonDetails } from '../screens';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -25,14 +25,14 @@ export function RootNavigator() {
 		<Stack.Navigator>
 			<Stack.Screen
 				name={PATHS.HOME}
-				component={HomeScreen}
+				component={Home}
 				options={{
 					title: 'Pokemon List',
 				}}
 			/>
 			<Stack.Screen
 				name={PATHS.POKEMON_DETAILS}
-				component={PokemonDetailsScreen}
+				component={PokemonDetails}
 				options={{
 					title: 'Pokemon Details',
 					headerLeft: () => (

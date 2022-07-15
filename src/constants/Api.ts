@@ -1,5 +1,5 @@
-const BASE_HOST = 'https://jsonplaceholder.typicode.com/';
+const BASE_HOST = 'https://pokeapi.co/api/v2';
 
-export const api = {
- BASE_HOST
-}
+export const API = {
+	BASE_HOST,
+};
