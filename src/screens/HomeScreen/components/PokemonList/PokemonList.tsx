@@ -34,8 +34,8 @@ export function PokemonList({
 					<PokemonBox id={item?.id} name={item?.name} imgUri={item?.imgUri} />
 				</View>
 			)}
-			onEndReached={shouldEnableLoadMore ? onLoadMore : null}
 			onEndReachedThreshold={shouldEnableLoadMore ? 0.5 : null}
+			onEndReached={() => (shouldEnableLoadMore ? onLoadMore() : null)}
 		/>
 	);
 }

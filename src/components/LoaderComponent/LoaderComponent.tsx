@@ -8,7 +8,7 @@ import { colors } from '../../constants';
 // styles
 import { styles } from './LoaderComponentStyles';
 
-export function LoaderComponent() {
+export function Loader() {
 	return (
 		<View style={styles.container}>
 			<ActivityIndicator size="large" color={colors.base.black} />

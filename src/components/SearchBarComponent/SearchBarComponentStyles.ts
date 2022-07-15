@@ -22,6 +22,7 @@ export const styles = StyleSheet.create({
 	textInput: {
 		width: '90%',
 		marginLeft: 8,
+		height: '100%',
 		marginRight: 15,
 		color: colors.text.primary,
 	},

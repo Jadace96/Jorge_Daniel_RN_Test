@@ -1,1 +1,1 @@
-export { usePokemon } from './usePokemon';
+export { usePaginatedPokemons } from './usePaginatedPokemons';

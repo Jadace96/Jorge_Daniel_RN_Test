@@ -5,11 +5,16 @@ import React, { ReactElement } from 'react';
 type RenderIfPropTypes = {
 	condition: boolean;
 	component: ReactElement<any, any>;
+	elseComponent?: ReactElement<any, any>;
 };
 
-export function RenderIf({ condition, component }: RenderIfPropTypes) {
+export function RenderIf({
+	condition,
+	component,
+	elseComponent = <></>,
+}: RenderIfPropTypes) {
 	if (condition) {
 		return component;
 	}
-	return <></>;
+	return elseComponent;
 }

@@ -70,8 +70,11 @@ export const getFilteredValuesByName = (
 	data: Array<{ [key: string]: unknown }>,
 	valueToFilter: string,
 ): any => {
-	const pattern = new RegExp(valueToFilter, 'i');
-	const filteredData = data?.filter((item: any) => pattern.test(item?.name));
+	let filteredData: { [key: string]: unknown }[] = [];
+	if (valueToFilter?.length > 0) {
+		const pattern = new RegExp(valueToFilter, 'i');
+		filteredData = data?.filter((item: any) => pattern.test(item?.name));
+	}
 
 	return valueToFilter?.length > 0 ? filteredData : [];
 };

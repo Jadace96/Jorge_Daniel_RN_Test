@@ -1,7 +1,12 @@
 const base = {
+	red: '#FF0000',
 	grey: '#C5CBCF',
 	black: '#000000',
 	white: '#ffffff',
+};
+
+const alert = {
+	error: base.red,
 };
 
 const text = {
@@ -38,6 +43,7 @@ const border = {
 export const colors = {
 	base,
 	text,
+	alert,
 	border,
 	background,
 };

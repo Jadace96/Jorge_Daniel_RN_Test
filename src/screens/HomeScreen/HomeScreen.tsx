@@ -1,17 +1,17 @@
 // vendors
-import React, { useState } from 'react';
 import { View, Text } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import React, { useMemo, useState } from 'react';
 
 // utils
-import { getFilteredValuesByName } from '../../utils';
+import { getPokemonListData } from './utils';
 
 // components
 import { PokemonList } from './components';
-import { RenderIf, SearchBar, LoaderComponent } from '../../components';
+import { Loader, RenderIf, SearchBar, RefreshIcon } from '../../components';
 
 // hooks
-import { usePokemon } from './hooks';
+import { usePaginatedPokemons } from './hooks';
 
 // constants
 import { PATHS } from '../../constants/Paths';
@@ -24,34 +24,56 @@ import { PokemonDataMappedTypes } from './types';
 
 export const Home = () => {
 	const navigation = useNavigation();
-	const { getPokemons, pokemonsData, isFetching, isError } = usePokemon();
+	const {
+		paginatedPokemons,
+		getPaginatedPokemons,
+		isPaginatedPokemonsError,
+		isPaginatedPokemonsSuccess,
+		isLoadingPaginatedPokemons,
+	} = usePaginatedPokemons();
 
-	const [filteredPokemons, setFilteredPokemons] = useState<
-		Array<PokemonDataMappedTypes>
-	>([]);
+	const [searchInputValue, setSearchInputValue] = useState('');
 
-	const onPressItem = () => {
-		navigation.navigate(PATHS.POKEMON_DETAILS);
-	};
+	// const onPressItem = () => {
+	// 	navigation.navigate(PATHS.POKEMON_DETAILS);
+	// };
 
-	const onSearchBarChange = (value: string) => {
-		const filteredPokemonsByName = getFilteredValuesByName(pokemonsData, value);
+	const pokemonListData = useMemo(() => {
+		const pokemonListData: Array<PokemonDataMappedTypes> = getPokemonListData(
+			searchInputValue,
+			paginatedPokemons,
+		);
 
-		setFilteredPokemons(filteredPokemonsByName);
-	};
-
-	if (isError) {
-		return <Text>An error has ocurred</Text>;
-	}
+		return pokemonListData;
+	}, [searchInputValue, paginatedPokemons]);
 
 	return (
 		<View style={styles.container}>
-			<SearchBar onChangeText={onSearchBarChange} />
-			<RenderIf condition={isFetching} component={<LoaderComponent />} />
+			<SearchBar value={searchInputValue} onChangeText={setSearchInputValue} />
+			<RenderIf component={<Loader />} condition={isLoadingPaginatedPokemons} />
 			<PokemonList
-				shouldEnableLoadMore={filteredPokemons?.length === 0}
-				onLoadMore={getPokemons}
-				data={filteredPokemons?.length > 0 ? filteredPokemons : pokemonsData}
+				data={pokemonListData}
+				onLoadMore={getPaginatedPokemons}
+				shouldEnableLoadMore={searchInputValue === ''}
+			/>
+			<RenderIf
+				condition={
+					pokemonListData?.length === 0 &&
+					(isPaginatedPokemonsError || searchInputValue !== '')
+				}
+				component={
+					<RefreshIcon
+						withIcon={false}
+						textStyles={styles.emptyMessageText}
+						onRefresh={() => setSearchInputValue('')}
+						stopAnimation={isPaginatedPokemonsSuccess}
+						text={
+							isPaginatedPokemonsError && searchInputValue === ''
+								? 'Oops, looks like all the pokemon are resting! Wait a moment or try again by clicking here!'
+								: 'Pokemon not found!, please try another name or try again by clicking here!'
+						}
+					/>
+				}
 			/>
 		</View>
 	);

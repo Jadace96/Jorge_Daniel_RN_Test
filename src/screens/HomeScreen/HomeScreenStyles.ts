@@ -1,9 +1,21 @@
 // vendors
 import { StyleSheet } from 'react-native';
 
+// constants
+import { colors } from './../../constants';
+
 export const styles = StyleSheet.create({
 	container: {
-		height: '100%',
 		alignItems: 'center',
+	},
+	emptyMessageContainer: {
+		alignItems: 'center',
+		paddingHorizontal: 10,
+	},
+	emptyMessageText: {
+		fontSize: 18,
+		fontWeight: '600',
+		textAlign: 'center',
+		color: colors.text.primary,
 	},
 });
