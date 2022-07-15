@@ -20,8 +20,8 @@ export const styles = StyleSheet.create({
 		height: layout.height,
 	},
 	image: {
-		width: 100,
-		height: 120,
+		width: 130,
+		height: 130,
 		marginBottom: 5,
 	},
 	fullImage: {

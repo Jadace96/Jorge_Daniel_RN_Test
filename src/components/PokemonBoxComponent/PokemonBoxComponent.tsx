@@ -1,6 +1,12 @@
 // vendors
-import React from 'react';
-import { View, Text, Image, ScrollView } from 'react-native';
+import React, { useState } from 'react';
+import {
+	View,
+	Text,
+	Image,
+	ScrollView,
+	TouchableHighlight,
+} from 'react-native';
 
 // utils
 import { capitalizeFirstLetter } from '../../utils';
@@ -28,13 +34,13 @@ export function PokemonBox({
 	movements,
 	showFullDetails = false,
 }: PokemonBoxTypes) {
-	console.log('movements =>>>', movements);
+	const [mainImage, setMainImage] = useState(imgUri);
 	return (
 		<View style={getContainerStyles(showFullDetails)}>
 			<Image
 				resizeMode="cover"
 				style={showFullDetails ? styles.fullImage : styles.image}
-				source={{ uri: imgUri }}
+				source={{ uri: mainImage }}
 			/>
 			<Text style={styles.text}># {id}</Text>
 			<Text style={styles.text}>{capitalizeFirstLetter(name)}</Text>
@@ -51,14 +57,16 @@ export function PokemonBox({
 							horizontal
 							style={styles.spritesContainer}
 							contentContainerStyle={styles.spritesContentContainer}>
-							{sprites?.map(sprite => (
-								<View style={styles.spriteContainer}>
+							{[imgUri, ...sprites]?.map(sprite => (
+								<TouchableHighlight
+									style={styles.spriteContainer}
+									onPress={() => setMainImage(sprite)}>
 									<Image
 										resizeMode="cover"
 										style={styles.spriteImg}
 										source={{ uri: sprite }}
 									/>
-								</View>
+								</TouchableHighlight>
 							))}
 						</ScrollView>
 						<Text style={styles.text}>Movements</Text>
