@@ -11,6 +11,7 @@ const text = {
 
 const background = {
 	primary: base.white,
+	secondary: base.grey,
 	button: {
 		navigation: '#0089E0',
 	},

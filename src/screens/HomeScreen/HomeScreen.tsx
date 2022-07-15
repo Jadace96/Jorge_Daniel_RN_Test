@@ -1,11 +1,11 @@
 // vendors
 import React from 'react';
-import { View, Text, TouchableHighlight } from 'react-native';
+import { View, Text } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 // components
 import { PokemonList } from './components';
-import { SearchBar, PokemonBox } from '../../components';
+import { RenderIf, SearchBar, LoaderComponent } from '../../components';
 
 // hooks
 import { usePokemon } from './hooks';
@@ -17,23 +17,25 @@ import { PATHS } from '../../constants/Paths';
 import { styles } from './HomeScreenStyles';
 
 export const Home = () => {
-	const { pokemonsData, isFetching, isError } = usePokemon();
+	const { getPokemons, pokemonsData, isFetching, isError } = usePokemon();
 	const navigation = useNavigation();
 
 	const onPressItem = () => {
 		navigation.navigate(PATHS.POKEMON_DETAILS);
 	};
 
-	if (isFetching) {
-		return <Text>Loading...</Text>;
-	} else if (isError) {
+	if (isError) {
 		return <Text>An error has ocurred</Text>;
 	}
 
 	return (
 		<View style={styles.container}>
 			<SearchBar />
-			<PokemonList data={pokemonsData} />
+			<RenderIf condition={isFetching} component={<LoaderComponent />} />
+			<PokemonList
+				data={pokemonsData}
+				onLoadMore={() => getPokemons(pokemonsData?.length)}
+			/>
 		</View>
 	);
 };

@@ -12,9 +12,11 @@ import { styles } from './PokemonListStyles';
 import { PokemonDataMappedTypes } from '../../types';
 
 type PokemonListPropTypes = {
+	onLoadMore: () => void;
 	data: Array<PokemonDataMappedTypes>;
 };
-export function PokemonList({ data }: PokemonListPropTypes) {
+
+export function PokemonList({ data, onLoadMore }: PokemonListPropTypes) {
 	return (
 		<FlatList
 			data={data}
@@ -27,6 +29,8 @@ export function PokemonList({ data }: PokemonListPropTypes) {
 					<PokemonBox id={item?.id} name={item?.name} imgUri={item?.imgUri} />
 				</View>
 			)}
+			onEndReached={onLoadMore}
+			onEndReachedThreshold={0}
 		/>
 	);
 }

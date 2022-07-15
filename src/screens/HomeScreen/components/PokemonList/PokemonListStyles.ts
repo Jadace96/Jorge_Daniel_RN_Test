@@ -3,6 +3,7 @@ import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
 	container: {
+		marginTop: 15,
 		width: '100%',
 	},
 	columnWrapper: {
@@ -13,6 +14,6 @@ export const styles = StyleSheet.create({
 	},
 	boxContainer: {
 		width: '45%',
-		marginTop: 15,
+		marginBottom: 15,
 	},
 });
