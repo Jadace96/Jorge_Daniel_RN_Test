@@ -1,9 +1,13 @@
 // vendors
 import React from 'react';
-import { View, FlatList } from 'react-native';
+import { FlatList, TouchableHighlight } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 // components
 import { PokemonBox } from '../../../../components';
+
+// constants
+import { PATHS } from '../../../../constants';
 
 // styles
 import { styles } from './PokemonListStyles';
@@ -22,6 +26,11 @@ export function PokemonList({
 	onLoadMore,
 	shouldEnableLoadMore = true,
 }: PokemonListPropTypes) {
+	const navigation = useNavigation();
+
+	const onPressPokemonBox = () => {
+		navigation.navigate(PATHS.POKEMON_DETAILS);
+	};
 	return (
 		<FlatList
 			data={data}
@@ -30,9 +39,11 @@ export function PokemonList({
 			columnWrapperStyle={styles.columnWrapper}
 			contentContainerStyle={styles.contentContainer}
 			renderItem={({ item }) => (
-				<View style={styles.boxContainer}>
+				<TouchableHighlight
+					onPress={onPressPokemonBox}
+					style={styles.boxContainer}>
 					<PokemonBox id={item?.id} name={item?.name} imgUri={item?.imgUri} />
-				</View>
+				</TouchableHighlight>
 			)}
 			onEndReachedThreshold={shouldEnableLoadMore ? 0.5 : null}
 			onEndReached={() => (shouldEnableLoadMore ? onLoadMore() : null)}

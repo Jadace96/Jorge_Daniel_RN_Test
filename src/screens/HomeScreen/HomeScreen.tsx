@@ -1,6 +1,5 @@
 // vendors
-import { View, Text } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import { View } from 'react-native';
 import React, { useMemo, useState } from 'react';
 
 // utils
@@ -13,9 +12,6 @@ import { Loader, RenderIf, SearchBar, RefreshIcon } from '../../components';
 // hooks
 import { usePaginatedPokemons } from './hooks';
 
-// constants
-import { PATHS } from '../../constants/Paths';
-
 // styles
 import { styles } from './HomeScreenStyles';
 
@@ -23,7 +19,6 @@ import { styles } from './HomeScreenStyles';
 import { PokemonDataMappedTypes } from './types';
 
 export const Home = () => {
-	const navigation = useNavigation();
 	const {
 		paginatedPokemons,
 		getPaginatedPokemons,
@@ -33,10 +28,6 @@ export const Home = () => {
 	} = usePaginatedPokemons();
 
 	const [searchInputValue, setSearchInputValue] = useState('');
-
-	// const onPressItem = () => {
-	// 	navigation.navigate(PATHS.POKEMON_DETAILS);
-	// };
 
 	const pokemonListData = useMemo(() => {
 		const pokemonListData: Array<PokemonDataMappedTypes> = getPokemonListData(
