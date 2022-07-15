@@ -59,6 +59,7 @@ export function PokemonBox({
 							contentContainerStyle={styles.spritesContentContainer}>
 							{[imgUri, ...sprites]?.map(sprite => (
 								<TouchableHighlight
+									key={sprite}
 									style={styles.spriteContainer}
 									onPress={() => setMainImage(sprite)}>
 									<Image
