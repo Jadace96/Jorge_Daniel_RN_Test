@@ -1,5 +1,6 @@
 // types
-import { PokemonDataTypes, PokemonDataMappedTypes } from '../types';
+import { PokemonDataTypes } from '../types';
+import { PokemonDataMappedTypes } from '../../../types';
 
 export const pokemonDataMapper = ({
 	id,
@@ -16,7 +17,7 @@ export const pokemonDataMapper = ({
 		name,
 		weight,
 		types: types?.flatMap(({ type }) => type?.name),
-		moves: moves?.flatMap(({ move }) => move?.name),
+		movements: moves?.flatMap(({ move }) => move?.name),
 		sprites: Object.values(spriteRest).filter(sprite => sprite),
 		imgUri:
 			Object.values(other)

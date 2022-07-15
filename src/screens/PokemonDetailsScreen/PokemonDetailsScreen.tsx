@@ -1,16 +1,25 @@
 // vendors
 import React from 'react';
-import { ScrollView, View, Text } from 'react-native';
+import { View } from 'react-native';
+import { PokemonBox } from '../../components';
 
 // styles
 import { styles } from './PokemonDetailsScreenStyles';
+import { PokemonDataMappedTypes } from '../../types';
 
-export function PokemonDetails() {
+// types
+type PokemonDetailsPropTypes = {
+	route: {
+		params: {
+			pokemonDetails: PokemonDataMappedTypes;
+		};
+	};
+};
+
+export function PokemonDetails({ route }: PokemonDetailsPropTypes) {
 	return (
-		<ScrollView style={styles.scrollContainer}>
-			<View style={styles.container}>
-				<Text style={styles.title}>Pokemon Details</Text>
-			</View>
-		</ScrollView>
+		<View style={styles.scrollContainer}>
+			<PokemonBox {...route.params.pokemonDetails} showFullDetails />
+		</View>
 	);
 }

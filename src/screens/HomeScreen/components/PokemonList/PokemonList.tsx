@@ -28,8 +28,11 @@ export function PokemonList({
 }: PokemonListPropTypes) {
 	const navigation = useNavigation();
 
-	const onPressPokemonBox = () => {
-		navigation.navigate(PATHS.POKEMON_DETAILS);
+	const onPressPokemonBox = (pokemonDetails: PokemonDataMappedTypes) => {
+		navigation.navigate(
+			PATHS.POKEMON_DETAILS as never,
+			{ pokemonDetails } as never,
+		);
 	};
 	return (
 		<FlatList
@@ -40,13 +43,13 @@ export function PokemonList({
 			contentContainerStyle={styles.contentContainer}
 			renderItem={({ item }) => (
 				<TouchableHighlight
-					onPress={onPressPokemonBox}
+					onPress={() => onPressPokemonBox(item)}
 					style={styles.boxContainer}>
-					<PokemonBox id={item?.id} name={item?.name} imgUri={item?.imgUri} />
+					<PokemonBox {...item} />
 				</TouchableHighlight>
 			)}
+			onEndReached={shouldEnableLoadMore ? onLoadMore : null}
 			onEndReachedThreshold={shouldEnableLoadMore ? 0.5 : null}
-			onEndReached={() => (shouldEnableLoadMore ? onLoadMore() : null)}
 		/>
 	);
 }

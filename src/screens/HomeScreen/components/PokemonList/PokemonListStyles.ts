@@ -1,4 +1,3 @@
-import { colors } from './../../../../constants/Colors';
 // vendors
 import { StyleSheet } from 'react-native';
 

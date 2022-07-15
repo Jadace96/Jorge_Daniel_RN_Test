@@ -1,0 +1,1 @@
+export { PokemonDataMappedTypes } from './PokemonTypes';
