@@ -1,4 +1,8 @@
+// vendors
 import { useState, useEffect } from 'react';
+
+// utils
+import { getRange } from '../../../utils';
 
 // services
 import { getPokemonById } from '../services';
@@ -15,16 +19,17 @@ export const usePokemon = () => {
 	>([]);
 
 	const onFetchPokemonsDataSuccess = (data: Array<PokemonDataMappedTypes>) => {
+		const updatedPokemonsData = [...pokemonsData, ...data];
+		debugger;
 		setIsSuccess(true);
-		setPokemonsData(data);
+		setPokemonsData(updatedPokemonsData);
 	};
 
-	const getPokemons = async (offset = 0, limit = 20) => {
+	const getPokemons = async () => {
 		setIsError(false);
 		setIsFetching(true);
 
-		const pokemonAmount = offset + limit;
-		const promisesArray = [...Array(pokemonAmount).keys()].map(pokemonId =>
+		const promisesArray = getRange(pokemonsData?.length).map(pokemonId =>
 			getPokemonById(pokemonId + 1),
 		);
 

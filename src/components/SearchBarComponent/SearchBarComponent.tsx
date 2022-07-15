@@ -1,17 +1,28 @@
 // vendors
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { AntDesign } from '@expo/vector-icons';
 import { View, Text, TextInput } from 'react-native';
 
 // utils
 import { debounce } from '../../utils';
 
-// styles
-import { styles } from './SearchBarComponentStyles';
+// constants
 import { colors } from '../../constants';
 
-export function SearchBar() {
+// styles
+import { styles } from './SearchBarComponentStyles';
+
+// types
+type SearchBarPropTypes = {
+	onChangeText: (textInputValue: string) => void;
+};
+
+export function SearchBar({ onChangeText }: SearchBarPropTypes) {
 	const [textInputValue, setTextInputValue] = useState('');
+
+	useEffect(() => {
+		onChangeText(textInputValue);
+	}, [textInputValue]);
 
 	return (
 		<View style={styles.container}>
@@ -21,7 +32,7 @@ export function SearchBar() {
 				// value={textInputValue}
 				style={styles.textInput}
 				placeholderTextColor={colors.text.secondary}
-				onChangeText={() => debounce(setTextInputValue)}
+				onChangeText={debounce(onChangeText)}
 			/>
 		</View>
 	);

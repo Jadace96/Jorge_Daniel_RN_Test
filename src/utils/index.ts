@@ -54,3 +54,14 @@ export const debounce = <F extends (...args: any[]) => any>(
 
 	return debounced as (...args: Parameters<F>) => ReturnType<F>;
 };
+
+export const getRange = (start = 0, end = start + 19, interval = 0) => {
+	let arr = [];
+	interval = interval > 0 ? interval - 1 : 0;
+	for (let i = start; i <= end; i++) {
+		arr.push(i);
+		i += interval;
+	}
+
+	return arr;
+};

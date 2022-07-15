@@ -30,7 +30,7 @@ export function PokemonList({ data, onLoadMore }: PokemonListPropTypes) {
 				</View>
 			)}
 			onEndReached={onLoadMore}
-			onEndReachedThreshold={0}
+			onEndReachedThreshold={-0.1}
 		/>
 	);
 }
