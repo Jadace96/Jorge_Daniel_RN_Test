@@ -10,6 +10,7 @@ import { Navigation } from './navigation';
 function App() {
 	return (
 		<SafeAreaProvider>
+			<StatusBar />
 			<Navigation />
 		</SafeAreaProvider>
 	);
