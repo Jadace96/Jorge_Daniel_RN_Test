@@ -40,8 +40,22 @@ This is a pair dependencie for `react-navigation` thies help us to use all navig
 
 ## Demo Examples
 
-- Android
-[https://drive.google.com/file/d/1jasUNi7zNbBb73WSfw4oFZ0qbX7LoWC2/view?usp=sharing](https://drive.google.com/file/d/1jasUNi7zNbBb73WSfw4oFZ0qbX7LoWC2/view?usp=sharing)
+### Physical Devices
 
-- iOS
-[https://drive.google.com/file/d/1FuZXZrzdddUTWHAmUVXydus_mnWumXol/view?usp=sharing](https://drive.google.com/file/d/1FuZXZrzdddUTWHAmUVXydus_mnWumXol/view?usp=sharing)
+- Android - [S10+](https://drive.google.com/file/d/1jasUNi7zNbBb73WSfw4oFZ0qbX7LoWC2/view?usp=sharing)
+
+https://drive.google.com/file/d/1jasUNi7zNbBb73WSfw4oFZ0qbX7LoWC2/view?usp=sharing
+
+- IOS - [Iphone 11 Pro](https://drive.google.com/file/d/1FuZXZrzdddUTWHAmUVXydus_mnWumXol/view?usp=sharing)
+
+https://drive.google.com/file/d/1FuZXZrzdddUTWHAmUVXydus_mnWumXol/view?usp=sharing
+
+### Simulator Devices
+
+- Android - [Nexus One - API 29](https://jumpshare.com/v/87fRJKqfgmo1zm5BzW54)
+
+https://jumpshare.com/v/87fRJKqfgmo1zm5BzW54
+
+- Android - [Pixel XL - API 29](https://jumpshare.com/v/6CCEdpUJYXbk7WsKKLVn)
+
+https://jumpshare.com/v/6CCEdpUJYXbk7WsKKLVn
