@@ -25,8 +25,8 @@ export const styles = StyleSheet.create({
 		marginBottom: 5,
 	},
 	fullImage: {
-		width: 250,
-		height: 250,
+		width: 200,
+		height: 200,
 		marginTop: 5,
 		marginBottom: 15,
 	},
@@ -42,10 +42,10 @@ export const styles = StyleSheet.create({
 		width: '100%',
 		padding: 20,
 	},
-	spritesContainer: {
+	horizontalScrollContainer: {
 		marginBottom: 7,
 	},
-	spritesContentContainer: {
+	horizontalScrollContentContainer: {
 		marginTop: 7,
 		flexWrap: 'nowrap',
 		flexDirection: 'row',

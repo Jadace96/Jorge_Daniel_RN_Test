@@ -7,6 +7,7 @@ import {
 	ScrollView,
 	TouchableHighlight,
 } from 'react-native';
+import { useHeaderHeight } from '@react-navigation/elements';
 
 // utils
 import { capitalizeFirstLetter } from '../../utils';
@@ -34,6 +35,8 @@ export function PokemonBox({
 	movements,
 	showFullDetails = false,
 }: PokemonBoxTypes) {
+	const headerHeight = useHeaderHeight();
+
 	const [mainImage, setMainImage] = useState(imgUri);
 	return (
 		<View style={getContainerStyles(showFullDetails)}>
@@ -47,7 +50,9 @@ export function PokemonBox({
 			<RenderIf
 				condition={showFullDetails}
 				component={
-					<View style={styles.fullDetailsContainer}>
+					<ScrollView
+						style={styles.fullDetailsContainer}
+						contentContainerStyle={{ paddingBottom: headerHeight }}>
 						<Text style={styles.text}>Types</Text>
 						<Text style={styles.smalText}>{types?.join(', ')}</Text>
 						<Text style={styles.text}>Weight</Text>
@@ -55,8 +60,8 @@ export function PokemonBox({
 						<Text style={styles.text}>Sprites</Text>
 						<ScrollView
 							horizontal
-							style={styles.spritesContainer}
-							contentContainerStyle={styles.spritesContentContainer}>
+							style={styles.horizontalScrollContainer}
+							contentContainerStyle={styles.horizontalScrollContentContainer}>
 							{[imgUri, ...sprites]?.map(sprite => (
 								<TouchableHighlight
 									key={sprite}
@@ -73,11 +78,11 @@ export function PokemonBox({
 						<Text style={styles.text}>Movements</Text>
 						<ScrollView
 							horizontal
-							style={styles.spritesContainer}
-							contentContainerStyle={styles.spritesContentContainer}>
+							style={styles.horizontalScrollContainer}
+							contentContainerStyle={styles.horizontalScrollContentContainer}>
 							<Text style={styles.smalText}>{movements?.join(', ')}</Text>
 						</ScrollView>
-					</View>
+					</ScrollView>
 				}
 			/>
 		</View>
