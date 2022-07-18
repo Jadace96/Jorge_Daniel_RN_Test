@@ -4,7 +4,7 @@
     "slug": "Jorge_Daniel_RN_Test",
     "version": "1.0.0",
     "orientation": "portrait",
-		"entryPoint": "./src/App.tsx",
+    "entryPoint": "./src/App.tsx",
     "icon": "./src/assets/images/icon.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
@@ -20,13 +20,15 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "Pokemon-RN-Test"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./src/assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "Pokemon_RN_Test"
     },
     "web": {
       "favicon": "./src/assets/images/favicon.png"

@@ -9,8 +9,8 @@
 		"web": "expo start --web",
 		"eject": "expo eject",
 		"test": "jest --watchAll",
-		"apk": "expo build:android -t apk",
-		"ipa": "expo build:ios -t archive"
+		"build:ios": "eas build -p ios",
+		"build:android": "eas build -p android"
 	},
 	"jest": {
 		"preset": "jest-expo"
@@ -41,6 +41,7 @@
 		"@babel/core": "^7.12.9",
 		"@types/react": "~17.0.21",
 		"@types/react-native": "~0.66.13",
+		"eas-cli": "^0.55.1",
 		"jest": "^26.6.3",
 		"jest-expo": "~45.0.0",
 		"react-test-renderer": "17.0.2",

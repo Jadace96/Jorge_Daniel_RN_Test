@@ -8,13 +8,13 @@
 
 - runs RN project with expo
 
-#### yarn apk or npm apk
+#### yarn build:android or npm build:android
 
-- generates an apk to install on android OS
+- follow all the steps in the console to generate the installable for Android
 
-#### yarn ipa or npm ipa
+#### yarn build:ios or npm build:ios
 
-- generates an ipa to install on ios OS
+- follow all the steps in the console to generate the installable for IOS
 
 #### yarn test or npm test
 
