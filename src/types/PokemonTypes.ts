@@ -1,5 +1,5 @@
 // types
-export type PokemonDataMappedTypes = {
+export type PokemonDataMapped = {
 	id: number;
 	name: string;
 	imgUri: string;

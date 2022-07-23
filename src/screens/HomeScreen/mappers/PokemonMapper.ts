@@ -1,6 +1,6 @@
 // types
-import { PokemonDataTypes } from '../types';
-import { PokemonDataMappedTypes } from '../../../types';
+import { PokemonDataProps } from '../types';
+import { PokemonDataMapped } from '../../../types';
 
 export const pokemonDataMapper = ({
 	id,
@@ -9,10 +9,10 @@ export const pokemonDataMapper = ({
 	moves,
 	weight,
 	sprites,
-}: PokemonDataTypes): PokemonDataMappedTypes => {
+}: PokemonDataProps): PokemonDataMapped => {
 	delete sprites.versions;
 	const { other, ...spriteRest } = sprites;
-	const mappedData: PokemonDataMappedTypes = {
+	const mappedData: PokemonDataMapped = {
 		id,
 		name,
 		weight,

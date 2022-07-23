@@ -1,20 +1,20 @@
 // types
-type NameUrlObjTypes = {
+type NameUrlObj = {
 	name: string;
 	url: string;
 };
 
-export type PokemonDataTypes = {
+export type PokemonDataProps = {
 	abilities: Array<{
-		ability: NameUrlObjTypes;
+		ability: NameUrlObj;
 		is_hidden: boolean;
 		slot: number;
 	}>;
 	base_experience: number;
-	forms: Array<NameUrlObjTypes>;
+	forms: Array<NameUrlObj>;
 	game_indices: Array<{
 		game_index: number;
-		version: NameUrlObjTypes;
+		version: NameUrlObj;
 	}>;
 	height: number;
 	held_items: Array<{}>;
@@ -22,17 +22,17 @@ export type PokemonDataTypes = {
 	is_default: boolean;
 	location_area_encounters: string;
 	moves: Array<{
-		move: NameUrlObjTypes;
+		move: NameUrlObj;
 		version_group_details: {
 			level_learned_at: number;
-			move_learn_method: NameUrlObjTypes;
+			move_learn_method: NameUrlObj;
 		};
-		version_group: NameUrlObjTypes;
+		version_group: NameUrlObj;
 	}>;
 	name: string;
 	order: 1;
 	past_types: Array<{}>;
-	species: NameUrlObjTypes;
+	species: NameUrlObj;
 	sprites: {
 		back_default: string;
 		back_shiny: string;
@@ -61,12 +61,12 @@ export type PokemonDataTypes = {
 	stats: Array<{ base_stat: number; effort: number }>;
 	types: Array<{
 		slot: number;
-		type: NameUrlObjTypes;
+		type: NameUrlObj;
 	}>;
 	weight: number;
 };
 
-export type PokemonDataMappedTypes = {
+export type PokemonDataMapped = {
 	id: number;
 	name: string;
 	imgUri: string;

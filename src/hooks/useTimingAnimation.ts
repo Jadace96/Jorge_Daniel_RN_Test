@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Animated, Easing } from 'react-native';
 
 // types
-type useTimingAnimationPropTypes = {
+type useTimingAnimationProps = {
 	onStartAnimation?: () => void;
 	onFinishAnimation?: () => void;
 };
@@ -11,7 +11,7 @@ type useTimingAnimationPropTypes = {
 export function useTimingAnimation({
 	onStartAnimation = () => {},
 	onFinishAnimation = () => {},
-}: useTimingAnimationPropTypes) {
+}: useTimingAnimationProps) {
 	const animation = useState(new Animated.Value(0))[0];
 
 	const startAnimation = () => {

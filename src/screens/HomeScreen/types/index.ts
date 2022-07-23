@@ -1,1 +1,1 @@
-export { PokemonDataTypes, PokemonDataMappedTypes } from './PokemonTypes';
+export { PokemonDataProps, PokemonDataMapped } from './PokemonTypes';

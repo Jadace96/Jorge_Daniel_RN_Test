@@ -2,11 +2,11 @@
 import { getFilteredValuesByName } from '../../../utils';
 
 // types
-import { PokemonDataMappedTypes } from '../types';
+import { PokemonDataMapped } from '../types';
 
 export const getPokemonListData = (
 	searchInputValue: string,
-	paginatedPokemons: Array<PokemonDataMappedTypes>,
+	paginatedPokemons: Array<PokemonDataMapped>,
 ) => {
 	if (searchInputValue?.length > 0) {
 		const filteredPokemonsByName = getFilteredValuesByName(

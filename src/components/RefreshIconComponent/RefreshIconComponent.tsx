@@ -13,7 +13,7 @@ import { colors } from '../../constants';
 import { styles } from './RefreshIconComponentStyles';
 import { RenderIf } from '../RenderIfComponent';
 
-type RefreshIconPropTypes = {
+type RefreshIconProps = {
 	text?: string;
 	textStyles: {};
 	withIcon?: boolean;
@@ -32,7 +32,7 @@ export const RefreshIcon = ({
 	stopAnimation,
 	textOnTop = true,
 	withIcon = true,
-}: RefreshIconPropTypes) => {
+}: RefreshIconProps) => {
 	const { animation, rotateValue, startAnimation } = useTimingAnimation({
 		onStartAnimation: onRefresh,
 		onFinishAnimation: afterRefresh,

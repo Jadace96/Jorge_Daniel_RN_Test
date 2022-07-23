@@ -16,7 +16,7 @@ import { usePaginatedPokemons } from './hooks';
 import { styles } from './HomeScreenStyles';
 
 // types
-import { PokemonDataMappedTypes } from './types';
+import { PokemonDataMapped } from './types';
 
 export const Home = () => {
 	const {
@@ -30,7 +30,7 @@ export const Home = () => {
 	const [searchInputValue, setSearchInputValue] = useState('');
 
 	const pokemonListData = useMemo(() => {
-		const pokemonListData: Array<PokemonDataMappedTypes> = getPokemonListData(
+		const pokemonListData: Array<PokemonDataMapped> = getPokemonListData(
 			searchInputValue,
 			paginatedPokemons,
 		);

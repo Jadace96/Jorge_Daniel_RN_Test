@@ -13,22 +13,22 @@ import { PATHS } from '../../../../constants';
 import { styles } from './PokemonListStyles';
 
 // types
-import { PokemonDataMappedTypes } from '../../types';
+import { PokemonDataMapped } from '../../types';
 
-type PokemonListPropTypes = {
+type PokemonListProps = {
 	onLoadMore: () => void;
 	shouldEnableLoadMore: boolean;
-	data: Array<PokemonDataMappedTypes>;
+	data: Array<PokemonDataMapped>;
 };
 
 export function PokemonList({
 	data,
 	onLoadMore,
 	shouldEnableLoadMore = true,
-}: PokemonListPropTypes) {
+}: PokemonListProps) {
 	const navigation = useNavigation();
 
-	const onPressPokemonBox = (pokemonDetails: PokemonDataMappedTypes) => {
+	const onPressPokemonBox = (pokemonDetails: PokemonDataMapped) => {
 		navigation.navigate(
 			PATHS.POKEMON_DETAILS as never,
 			{ pokemonDetails } as never,

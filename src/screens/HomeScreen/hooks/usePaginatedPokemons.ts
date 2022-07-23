@@ -8,7 +8,7 @@ import { getRange } from '../../../utils';
 import { getPokemonByQuery } from '../services';
 
 // types
-import { PokemonDataMappedTypes } from '../types';
+import { PokemonDataMapped } from '../types';
 
 export const usePaginatedPokemons = () => {
 	const [isPaginatedPokemonsSuccess, setIsPaginatedPokemonsSuccess] =
@@ -18,12 +18,10 @@ export const usePaginatedPokemons = () => {
 	const [isLoadingPaginatedPokemons, setIsLoadingPaginatedPokemons] =
 		useState(false);
 	const [paginatedPokemons, setPaginatedPokemons] = useState<
-		Array<PokemonDataMappedTypes>
+		Array<PokemonDataMapped>
 	>([]);
 
-	const onFetchPaginatedPokemonsSuccess = (
-		data: Array<PokemonDataMappedTypes>,
-	) => {
+	const onFetchPaginatedPokemonsSuccess = (data: Array<PokemonDataMapped>) => {
 		const updatedPokemonsData = [...paginatedPokemons, ...data];
 		setPaginatedPokemons(updatedPokemonsData);
 		setIsPaginatedPokemonsSuccess(true);

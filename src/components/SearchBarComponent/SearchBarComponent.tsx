@@ -1,10 +1,7 @@
 // vendors
-import React, { MutableRefObject } from 'react';
+import React from 'react';
 import { AntDesign, MaterialIcons } from '@expo/vector-icons';
 import { View, TextInput } from 'react-native';
-
-// utils
-import { debounce } from '../../utils';
 
 // constants
 import { colors } from '../../constants';
@@ -14,12 +11,12 @@ import { styles } from './SearchBarComponentStyles';
 import { RenderIf } from '../RenderIfComponent';
 
 // types
-type SearchBarPropTypes = {
+type SearchBarProps = {
 	value?: string;
 	onChangeText: (textInputValue: string) => void;
 };
 
-export function SearchBar({ value, onChangeText }: SearchBarPropTypes) {
+export function SearchBar({ value, onChangeText }: SearchBarProps) {
 	return (
 		<View style={styles.container}>
 			<AntDesign name="search1" size={20} color={colors.text.secondary} />

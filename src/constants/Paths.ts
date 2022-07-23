@@ -1,9 +1,9 @@
 // types
-type PathsTypes = {
+type Paths = {
 	[key: string]: string;
 };
 
-export const PATHS: PathsTypes = {
+export const PATHS: Paths = {
 	HOME: '/home',
 	POKEMON_DETAILS: '/pokemon-details',
 };

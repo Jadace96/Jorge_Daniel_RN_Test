@@ -19,9 +19,9 @@ import { RenderIf } from '../RenderIfComponent';
 import { styles, getContainerStyles } from './PokemonBoxComponentStyles';
 
 // types
-import { PokemonDataMappedTypes } from '../../types';
+import { PokemonDataMapped } from '../../types';
 
-type PokemonBoxTypes = PokemonDataMappedTypes & {
+type PokemonBoxProps = PokemonDataMapped & {
 	showFullDetails?: boolean;
 };
 
@@ -34,7 +34,7 @@ export function PokemonBox({
 	sprites,
 	movements,
 	showFullDetails = false,
-}: PokemonBoxTypes) {
+}: PokemonBoxProps) {
 	const headerHeight = useHeaderHeight();
 
 	const [mainImage, setMainImage] = useState(imgUri);

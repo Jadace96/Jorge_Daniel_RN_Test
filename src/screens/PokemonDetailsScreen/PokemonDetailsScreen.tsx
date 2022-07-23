@@ -5,18 +5,18 @@ import { PokemonBox } from '../../components';
 
 // styles
 import { styles } from './PokemonDetailsScreenStyles';
-import { PokemonDataMappedTypes } from '../../types';
+import { PokemonDataMapped } from '../../types';
 
 // types
-type PokemonDetailsPropTypes = {
+type PokemonDetailsProps = {
 	route: {
 		params: {
-			pokemonDetails: PokemonDataMappedTypes;
+			pokemonDetails: PokemonDataMapped;
 		};
 	};
 };
 
-export function PokemonDetails({ route }: PokemonDetailsPropTypes) {
+export function PokemonDetails({ route }: PokemonDetailsProps) {
 	return (
 		<View style={styles.scrollContainer}>
 			<PokemonBox {...route.params.pokemonDetails} showFullDetails />

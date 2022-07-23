@@ -2,7 +2,7 @@
 import React, { ReactElement } from 'react';
 
 // types
-type RenderIfPropTypes = {
+type RenderIfProps = {
 	condition: boolean;
 	component: ReactElement<any, any>;
 	elseComponent?: ReactElement<any, any>;
@@ -12,7 +12,7 @@ export function RenderIf({
 	condition,
 	component,
 	elseComponent = <></>,
-}: RenderIfPropTypes) {
+}: RenderIfProps) {
 	if (condition) {
 		return component;
 	}
