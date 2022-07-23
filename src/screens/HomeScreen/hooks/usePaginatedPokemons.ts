@@ -23,6 +23,7 @@ export const usePaginatedPokemons = () => {
 
 	const onFetchPaginatedPokemonsSuccess = (data: Array<PokemonDataMapped>) => {
 		const updatedPokemonsData = [...paginatedPokemons, ...data];
+
 		setPaginatedPokemons(updatedPokemonsData);
 		setIsPaginatedPokemonsSuccess(true);
 	};
@@ -31,13 +32,12 @@ export const usePaginatedPokemons = () => {
 		setIsPaginatedPokemonsError(false);
 		setIsLoadingPaginatedPokemons(true);
 
-		const promisesArray = getRange(paginatedPokemons?.length).map(pokemonId =>
-			getPokemonByQuery(pokemonId + 1),
-		);
+		const pokemonsId = getRange({ start: paginatedPokemons?.length + 1 });
+		const promisesArray = pokemonsId.map(getPokemonByQuery);
 
 		await Promise.all(promisesArray)
 			.then(onFetchPaginatedPokemonsSuccess)
-			.catch((error: any) => setIsPaginatedPokemonsError(error))
+			.catch(() => setIsPaginatedPokemonsError(true))
 			.finally(() => setIsLoadingPaginatedPokemons(false));
 	};
 

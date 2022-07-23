@@ -65,13 +65,3 @@ export type PokemonDataProps = {
 	}>;
 	weight: number;
 };
-
-export type PokemonDataMapped = {
-	id: number;
-	name: string;
-	imgUri: string;
-	weight: number;
-	types: Array<string>;
-	moves: Array<string>;
-	sprites: Array<string>;
-};

@@ -39,10 +39,10 @@ export function RootNavigator() {
 					headerTitleAlign: 'center',
 					headerLeft: () => (
 						<AntDesign
-							onPress={navigation.goBack}
 							size={24}
 							name="left"
-							color="black"
+							onPress={navigation.goBack}
+							style={{ left: -10, padding: 10 }}
 						/>
 					),
 				}}

@@ -1,1 +1,1 @@
-export { RefreshIcon } from './RefreshIconComponent';
+export { Refresh } from './RefreshComponent';

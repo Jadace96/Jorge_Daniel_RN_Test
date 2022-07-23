@@ -7,7 +7,7 @@ import { getPokemonListData } from './utils';
 
 // components
 import { PokemonList } from './components';
-import { Loader, RenderIf, SearchBar, RefreshIcon } from '../../components';
+import { Loader, RenderIf, SearchBar, Refresh } from '../../components';
 
 // hooks
 import { usePaginatedPokemons } from './hooks';
@@ -30,12 +30,12 @@ export const Home = () => {
 	const [searchInputValue, setSearchInputValue] = useState('');
 
 	const pokemonListData = useMemo(() => {
-		const pokemonListData: Array<PokemonDataMapped> = getPokemonListData(
+		const pokemonListData = getPokemonListData(
 			searchInputValue,
 			paginatedPokemons,
 		);
 
-		return pokemonListData;
+		return pokemonListData as Array<PokemonDataMapped> | [];
 	}, [searchInputValue, paginatedPokemons]);
 
 	return (
@@ -53,7 +53,7 @@ export const Home = () => {
 					(isPaginatedPokemonsError || searchInputValue !== '')
 				}
 				component={
-					<RefreshIcon
+					<Refresh
 						withIcon={false}
 						textStyles={styles.emptyMessageText}
 						onRefresh={() => setSearchInputValue('')}

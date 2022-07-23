@@ -1,5 +1,5 @@
 // utils
-import { getFilteredValuesByName } from '../../../utils';
+import { getFilteredValues } from '../../../utils';
 
 // types
 import { PokemonDataMapped } from '../types';
@@ -8,14 +8,12 @@ export const getPokemonListData = (
 	searchInputValue: string,
 	paginatedPokemons: Array<PokemonDataMapped>,
 ) => {
-	if (searchInputValue?.length > 0) {
-		const filteredPokemonsByName = getFilteredValuesByName(
-			paginatedPokemons,
-			searchInputValue,
-		);
+	if (searchInputValue === '') return paginatedPokemons;
 
-		return filteredPokemonsByName;
-	}
+	const filteredPokemonsByName = getFilteredValues({
+		data: paginatedPokemons,
+		valueToFilter: searchInputValue,
+	});
 
-	return paginatedPokemons;
+	return filteredPokemonsByName;
 };

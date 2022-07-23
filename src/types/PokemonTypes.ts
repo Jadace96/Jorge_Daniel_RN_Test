@@ -1,4 +1,3 @@
-// types
 export type PokemonDataMapped = {
 	id: number;
 	name: string;

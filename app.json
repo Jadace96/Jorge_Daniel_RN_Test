@@ -28,7 +28,7 @@
         "foregroundImage": "./src/assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "Pokemon_RN_Test"
+      "package": "Pokemon.RN.Test"
     },
     "web": {
       "favicon": "./src/assets/images/favicon.png"

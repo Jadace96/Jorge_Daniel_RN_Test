@@ -13,10 +13,7 @@ export const styles = StyleSheet.create({
 		paddingBottom: 10,
 		alignItems: 'center',
 	},
-	fullViewContainer: {
-		borderWidth: 3,
-		paddingBottom: 10,
-		alignItems: 'center',
+	fullHeight: {
 		height: layout.height,
 	},
 	image: {
@@ -68,6 +65,7 @@ export const styles = StyleSheet.create({
 });
 
 export const getContainerStyles = (showFullDetails = false) => ({
-	...(showFullDetails ? styles.fullViewContainer : styles.container),
+	...styles.container,
+	...(showFullDetails && styles.fullHeight),
 	...getRandomBackgroundAndBorderColor(),
 });

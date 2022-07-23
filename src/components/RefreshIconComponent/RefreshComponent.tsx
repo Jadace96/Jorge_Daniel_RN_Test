@@ -10,10 +10,10 @@ import { useTimingAnimation } from '../../hooks';
 import { colors } from '../../constants';
 
 // styles
-import { styles } from './RefreshIconComponentStyles';
+import { styles } from './RefreshComponentStyles';
 import { RenderIf } from '../RenderIfComponent';
 
-type RefreshIconProps = {
+type RefreshProps = {
 	text?: string;
 	textStyles: {};
 	withIcon?: boolean;
@@ -24,7 +24,7 @@ type RefreshIconProps = {
 	afterRefresh?: () => void;
 };
 
-export const RefreshIcon = ({
+export const Refresh = ({
 	text = '',
 	onRefresh,
 	textStyles,
@@ -32,7 +32,7 @@ export const RefreshIcon = ({
 	stopAnimation,
 	textOnTop = true,
 	withIcon = true,
-}: RefreshIconProps) => {
+}: RefreshProps) => {
 	const { animation, rotateValue, startAnimation } = useTimingAnimation({
 		onStartAnimation: onRefresh,
 		onFinishAnimation: afterRefresh,
