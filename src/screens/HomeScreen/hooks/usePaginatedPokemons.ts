@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import { getRange } from '../../../utils';
 
 // services
-import { getPokemonByQuery } from '../services';
+import { getPokemonById } from '../services';
 
 // types
 import { PokemonDataMapped } from '../types';
@@ -33,7 +33,7 @@ export const usePaginatedPokemons = () => {
 		setIsLoadingPaginatedPokemons(true);
 
 		const pokemonsId = getRange(paginatedPokemons?.length + 1);
-		const promisesArray = pokemonsId.map(getPokemonByQuery);
+		const promisesArray = pokemonsId.map(getPokemonById);
 
 		await Promise.all(promisesArray)
 			.then(onFetchPaginatedPokemonsSuccess)

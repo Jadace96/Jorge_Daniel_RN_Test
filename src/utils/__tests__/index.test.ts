@@ -12,7 +12,7 @@ import {
 const hexadecimalRegExp = /^#([0-9a-f]{3}){1,2}$/i;
 
 // mocks
-import { mockPokemonDataMapped } from '../../__mocks__/pokemonDataMocks';
+import { mockPokemonsDataMapped } from '../../__mocks__/PokemonDataMocks';
 
 describe('Utils test suit', () => {
 	it('should return random hexadecimal colors', () => {
@@ -67,7 +67,7 @@ describe('Utils test suit', () => {
 
 	it('should return and empty array when valueToFilter is empty ', () => {
 		const filteredData = getFilteredValues({
-			data: mockPokemonDataMapped,
+			data: mockPokemonsDataMapped,
 			valueToFilter: '',
 		});
 
@@ -85,16 +85,16 @@ describe('Utils test suit', () => {
 
 	it('should return filtered pokemons by name', () => {
 		const filteredData = getFilteredValues({
-			data: mockPokemonDataMapped,
+			data: mockPokemonsDataMapped,
 			valueToFilter: 'cha',
 		});
 
-		expect(filteredData).toHaveLength(3);
+		expect(filteredData).toHaveLength(1);
 	});
 
 	it('should return an empty array when no matches are found', () => {
 		const filteredData = getFilteredValues({
-			data: mockPokemonDataMapped,
+			data: mockPokemonsDataMapped,
 			valueToFilter: 'chachacha',
 		});
 

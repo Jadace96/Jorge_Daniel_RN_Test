@@ -1,228 +1,277 @@
-export const mockPokemonDataMapped = [
+export const mockCharizardData = {
+	abilities: [
+		{
+			ability: {
+				name: 'blaze',
+				url: 'https://pokeapi.co/api/v2/ability/66/',
+			},
+			is_hidden: false,
+			slot: 1,
+		},
+		{
+			ability: {
+				name: 'solar-power',
+				url: 'https://pokeapi.co/api/v2/ability/94/',
+			},
+			is_hidden: true,
+			slot: 3,
+		},
+	],
+	base_experience: 267,
+	forms: [
+		{
+			name: 'charizard',
+			url: 'https://pokeapi.co/api/v2/pokemon-form/6/',
+		},
+	],
+	game_indices: [
+		{
+			game_index: 180,
+			version: {
+				name: 'red',
+				url: 'https://pokeapi.co/api/v2/version/1/',
+			},
+		},
+		{
+			game_index: 180,
+			version: {
+				name: 'blue',
+				url: 'https://pokeapi.co/api/v2/version/2/',
+			},
+		},
+	],
+	height: 17,
+	held_items: [],
+	id: 6,
+	is_default: true,
+	location_area_encounters: 'https://pokeapi.co/api/v2/pokemon/6/encounters',
+	moves: [
+		{
+			move: {
+				name: 'mega-punch',
+				url: 'https://pokeapi.co/api/v2/move/5/',
+			},
+			version_group_details: [
+				{
+					level_learned_at: 0,
+					move_learn_method: {
+						name: 'machine',
+						url: 'https://pokeapi.co/api/v2/move-learn-method/4/',
+					},
+					version_group: {
+						name: 'red-blue',
+						url: 'https://pokeapi.co/api/v2/version-group/1/',
+					},
+				},
+			],
+		},
+	],
+	name: 'charizard',
+	order: 7,
+	past_types: [],
+	species: {
+		name: 'charizard',
+		url: 'https://pokeapi.co/api/v2/pokemon-species/6/',
+	},
+	sprites: {
+		back_default:
+			'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/6.png',
+		back_shiny:
+			'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/shiny/6.png',
+		front_default:
+			'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png',
+		other: {
+			dream_world: {
+				front_default:
+					'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/6.svg',
+			},
+			home: {
+				front_default:
+					'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/6.png',
+			},
+		},
+		versions: {
+			'generation-i': {},
+			'generation-ii': {},
+		},
+	},
+	stats: [
+		{
+			base_stat: 78,
+			effort: 0,
+			stat: {
+				name: 'hp',
+				url: 'https://pokeapi.co/api/v2/stat/1/',
+			},
+		},
+		{
+			base_stat: 84,
+			effort: 0,
+			stat: {
+				name: 'attack',
+				url: 'https://pokeapi.co/api/v2/stat/2/',
+			},
+		},
+	],
+	types: [
+		{
+			slot: 1,
+			type: {
+				name: 'fire',
+				url: 'https://pokeapi.co/api/v2/type/10/',
+			},
+		},
+		{
+			slot: 2,
+			type: {
+				name: 'flying',
+				url: 'https://pokeapi.co/api/v2/type/3/',
+			},
+		},
+	],
+	weight: 905,
+};
+
+export const mockBulbasaurData = {
+	abilities: [
+		{
+			ability: {
+				name: 'overgrow',
+				url: 'https://pokeapi.co/api/v2/ability/65/',
+			},
+			is_hidden: false,
+			slot: 1,
+		},
+		{
+			ability: {
+				name: 'chlorophyll',
+				url: 'https://pokeapi.co/api/v2/ability/34/',
+			},
+			is_hidden: true,
+			slot: 3,
+		},
+	],
+	base_experience: 64,
+	forms: [
+		{ name: 'bulbasaur', url: 'https://pokeapi.co/api/v2/pokemon-form/1/' },
+	],
+	game_indices: [
+		{
+			game_index: 153,
+			version: { name: 'red', url: 'https://pokeapi.co/api/v2/version/1/' },
+		},
+		{
+			game_index: 153,
+			version: { name: 'blue', url: 'https://pokeapi.co/api/v2/version/2/' },
+		},
+	],
+	height: 7,
+	held_items: [],
+	id: 1,
+	is_default: true,
+	location_area_encounters: 'https://pokeapi.co/api/v2/pokemon/1/encounters',
+	moves: [
+		{
+			move: { name: 'razor-wind', url: 'https://pokeapi.co/api/v2/move/13/' },
+			version_group_details: [
+				{
+					level_learned_at: 0,
+					move_learn_method: {
+						name: 'egg',
+						url: 'https://pokeapi.co/api/v2/move-learn-method/2/',
+					},
+					version_group: {
+						name: 'gold-silver',
+						url: 'https://pokeapi.co/api/v2/version-group/3/',
+					},
+				},
+			],
+		},
+	],
+	name: 'bulbasaur',
+	order: 1,
+	past_types: [],
+	species: {
+		name: 'bulbasaur',
+		url: 'https://pokeapi.co/api/v2/pokemon-species/1/',
+	},
+	sprites: {
+		back_default:
+			'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/1.png',
+		back_shiny:
+			'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/shiny/1.png',
+		other: {
+			dream_world: {
+				front_default:
+					'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg',
+			},
+			home: {
+				front_default:
+					'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/1.png',
+			},
+			'official-artwork': {
+				front_default:
+					'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png',
+			},
+		},
+		versions: {
+			'generation-i': {},
+			'generation-ii': {},
+		},
+	},
+	stats: [
+		{
+			base_stat: 45,
+			effort: 0,
+			stat: { name: 'hp', url: 'https://pokeapi.co/api/v2/stat/1/' },
+		},
+		{
+			base_stat: 49,
+			effort: 0,
+			stat: { name: 'attack', url: 'https://pokeapi.co/api/v2/stat/2/' },
+		},
+	],
+	types: [
+		{
+			slot: 1,
+			type: { name: 'grass', url: 'https://pokeapi.co/api/v2/type/12/' },
+		},
+		{
+			slot: 2,
+			type: { name: 'poison', url: 'https://pokeapi.co/api/v2/type/4/' },
+		},
+	],
+	weight: 69,
+};
+
+export const mockFetchPokemonsData = [mockCharizardData, mockBulbasaurData];
+
+export const mockPokemonsDataMapped = [
 	{
 		id: 1,
 		name: 'bulbasaur',
 		weight: 69,
 		types: ['grass', 'poison'],
-		movements: [
-			'razor-wind',
-			'swords-dance',
-			'cut',
-			'bind',
-			'vine-whip',
-			'headbutt',
-			'tackle',
-		],
+		movements: ['razor-wind'],
 		sprites: [
-			'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/2.png',
-			'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/shiny/2.png',
-			'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png',
-			'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/2.png',
+			'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/1.png',
+			'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/shiny/1.png',
 		],
 		imgUri:
-			'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/2.png',
-	},
-	{
-		id: 3,
-		name: 'venusaur',
-		weight: 1000,
-		types: ['grass', 'poison'],
-		movements: [
-			'swords-dance',
-			'cut',
-			'bind',
-			'vine-whip',
-			'headbutt',
-			'tackle',
-			'body-slam',
-			'take-down',
-			'double-edge',
-			'growl',
-			'roar',
-			'hyper-beam',
-			'strength',
-			'mega-drain',
-		],
-		sprites: [
-			'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/3.png',
-			'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/female/3.png',
-			'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/shiny/3.png',
-			'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/shiny/female/3.png',
-			'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png',
-			'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/female/3.png',
-			'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/3.png',
-			'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/female/3.png',
-		],
-		imgUri:
-			'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/3.png',
-	},
-	{
-		id: 4,
-		name: 'charmander',
-		weight: 85,
-		types: ['fire'],
-		movements: [
-			'mega-punch',
-			'fire-punch',
-			'thunder-punch',
-			'scratch',
-			'swords-dance',
-			'cut',
-			'wing-attack',
-			'mega-kick',
-			'headbutt',
-			'body-slam',
-			'take-down',
-		],
-		sprites: [
-			'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/4.png',
-			'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/shiny/4.png',
-			'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png',
-			'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/4.png',
-		],
-		imgUri:
-			'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/4.png',
-	},
-	{
-		id: 5,
-		name: 'charmeleon',
-		weight: 190,
-		types: ['fire'],
-		movements: [
-			'mega-punch',
-			'fire-punch',
-			'thunder-punch',
-			'scratch',
-			'swords-dance',
-			'cut',
-			'mega-kick',
-			'headbutt',
-			'body-slam',
-		],
-		sprites: [
-			'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/5.png',
-			'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/shiny/5.png',
-			'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/5.png',
-			'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/5.png',
-		],
-		imgUri:
-			'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/5.png',
+			'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/1.png',
 	},
 	{
 		id: 6,
 		name: 'charizard',
 		weight: 905,
 		types: ['fire', 'flying'],
-		movements: [
-			'mega-punch',
-			'fire-punch',
-			'thunder-punch',
-			'scratch',
-			'swords-dance',
-			'cut',
-			'wing-attack',
-			'fly',
-			'mega-kick',
-			'headbutt',
-		],
+		movements: ['mega-punch'],
 		sprites: [
 			'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/6.png',
 			'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/shiny/6.png',
 			'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png',
-			'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/6.png',
 		],
 		imgUri:
 			'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/6.png',
-	},
-	{
-		id: 7,
-		name: 'squirtle',
-		weight: 90,
-		types: ['water'],
-		movements: [
-			'mega-punch',
-			'ice-punch',
-			'mega-kick',
-			'headbutt',
-			'tackle',
-			'body-slam',
-			'take-down',
-			'double-edge',
-			'tail-whip',
-		],
-		sprites: [
-			'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/7.png',
-			'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/shiny/7.png',
-			'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png',
-			'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/7.png',
-		],
-		imgUri:
-			'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/7.png',
-	},
-	{
-		id: 8,
-		name: 'wartortle',
-		weight: 225,
-		types: ['water'],
-		movements: [
-			'double-edge',
-			'tail-whip',
-			'bite',
-			'water-gun',
-			'hydro-pump',
-			'surf',
-			'ice-beam',
-			'blizzard',
-			'bubble-beam',
-			'submission',
-		],
-		sprites: [
-			'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/8.png',
-			'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/shiny/8.png',
-			'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/8.png',
-			'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/8.png',
-		],
-		imgUri:
-			'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/8.png',
-	},
-	{
-		id: 9,
-		name: 'blastoise',
-		weight: 855,
-		types: ['water'],
-		movements: [
-			'tail-whip',
-			'bite',
-			'roar',
-			'water-gun',
-			'hydro-pump',
-			'surf',
-			'ice-beam',
-			'blizzard',
-			'bubble-beam',
-		],
-		sprites: [
-			'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/9.png',
-			'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/shiny/9.png',
-			'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/9.png',
-			'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/9.png',
-		],
-		imgUri:
-			'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/9.png',
-	},
-	{
-		id: 10,
-		name: 'caterpie',
-		weight: 29,
-		types: ['bug'],
-		movements: ['tackle', 'string-shot', 'snore', 'bug-bite', 'electroweb'],
-		sprites: [
-			'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/10.png',
-			'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/shiny/10.png',
-			'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10.png',
-			'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/10.png',
-		],
-		imgUri:
-			'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/10.png',
 	},
 ];

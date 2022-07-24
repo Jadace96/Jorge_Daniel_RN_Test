@@ -1,1 +1,1 @@
-export { getPokemonByQuery } from './PokemonService';
+export { getPokemonById } from './PokemonService';

@@ -1,7 +1,7 @@
 // vendors
 import React from 'react';
+import { View, TextInput, Keyboard } from 'react-native';
 import { AntDesign, MaterialIcons } from '@expo/vector-icons';
-import { View, TextInput } from 'react-native';
 
 // constants
 import { colors } from '../../constants';
@@ -34,7 +34,10 @@ export function SearchBar({ value, onChangeText }: SearchBarProps) {
 						size={24}
 						name="clear"
 						color={colors.text.secondary}
-						onPress={() => onChangeText('')}
+						onPress={() => {
+							onChangeText('');
+							Keyboard.dismiss();
+						}}
 					/>
 				}
 			/>

@@ -4,8 +4,8 @@ import { API } from './../../../constants';
 // mappers
 import { pokemonDataMapper } from '../mappers';
 
-export const getPokemonByQuery = async (query: number | string) => {
-	const response = await fetch(`${API.BASE_HOST}/pokemon/${query}`);
+export const getPokemonById = async (id: number) => {
+	const response = await fetch(`${API.BASE_HOST}/pokemon/${id}`);
 	const data = await response.json();
 
 	return pokemonDataMapper(data);
