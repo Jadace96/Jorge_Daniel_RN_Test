@@ -30,39 +30,26 @@ export const darkenHexColor = (hexColor: string, amount = -40): string => {
 
 export const getRandomBackgroundAndBorderColor =
 	(): types.GetRandomBackgroundAndBorderColor => {
-		const bgHexColor = getRandomLightHexColor();
+		const hexColor = getRandomLightHexColor();
 
 		return {
-			backgroundColor: bgHexColor,
-			borderColor: darkenHexColor(bgHexColor),
+			backgroundColor: hexColor,
+			borderColor: darkenHexColor(hexColor),
 		};
 	};
 
 export const capitalizeFirstLetter = (word: string): string =>
 	word.charAt(0).toUpperCase() + word.slice(1);
 
-export const getRange = ({
-	start = 0,
-	end = start + 19,
-	interval = 0,
-}: types.GetRange): Array<number> => {
-	let numberArray = [];
-	for (let i = start; i <= end; i++) {
-		numberArray.push(i);
-		i += interval;
-	}
-
-	return numberArray;
-};
+export const getRange = (start = 1, end = start + 19): Array<number> =>
+	[...Array(end - start + 1).keys()].map(key => key + start);
 
 export const getFilteredValues = ({
 	data,
 	valueToFilter,
 	keyToFilter = 'name',
-}: types.GetFilteredValuesByName):
-	| Array<types.GetFilteredValuesByNameDataItem>
-	| [] => {
-	if (valueToFilter === '') return [];
+}: types.GetFilteredValuesByName): Array<types.GetFilteredValuesByNameDataItem> | [] => {
+	if (data?.length === 0 || valueToFilter === '') return [];
 
 	const filteredData = data?.filter(
 		(item: types.GetFilteredValuesByNameDataItem) =>

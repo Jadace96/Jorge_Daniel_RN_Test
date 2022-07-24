@@ -10,9 +10,3 @@ export type GetRandomBackgroundAndBorderColor = {
 	backgroundColor: string;
 	borderColor: string;
 };
-
-export type GetRange = {
-	start?: number;
-	end?: number;
-	interval?: number;
-};

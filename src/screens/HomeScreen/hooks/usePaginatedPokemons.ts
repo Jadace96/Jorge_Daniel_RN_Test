@@ -32,7 +32,7 @@ export const usePaginatedPokemons = () => {
 		setIsPaginatedPokemonsError(false);
 		setIsLoadingPaginatedPokemons(true);
 
-		const pokemonsId = getRange({ start: paginatedPokemons?.length + 1 });
+		const pokemonsId = getRange(paginatedPokemons?.length + 1);
 		const promisesArray = pokemonsId.map(getPokemonByQuery);
 
 		await Promise.all(promisesArray)
