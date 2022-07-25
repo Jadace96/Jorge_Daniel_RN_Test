@@ -33,6 +33,10 @@ const spyUsePaginatedPokemons = (
 };
 
 describe('Home screen test suit', () => {
+	beforeEach(() => {
+		jest.clearAllMocks();
+	});
+
 	it('should render component correctly whit initial data', () => {
 		spyUsePaginatedPokemons();
 
