@@ -45,8 +45,8 @@ export function PokemonList({
 			renderItem={({ item }) => (
 				<TouchableHighlight
 					key={item.id}
-					onPress={() => onPressPokemonBox(item)}
-					style={styles.boxContainer}>
+					style={styles.boxContainer}
+					onPress={() => onPressPokemonBox(item)}>
 					<PokemonBox {...item} />
 				</TouchableHighlight>
 			)}

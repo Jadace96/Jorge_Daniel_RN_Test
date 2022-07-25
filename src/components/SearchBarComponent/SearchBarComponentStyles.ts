@@ -2,12 +2,11 @@
 import { StyleSheet } from 'react-native';
 
 // constants
-import { colors } from '../../constants';
+import { colors, layout } from '../../constants';
 
 export const styles = StyleSheet.create({
 	container: {
 		top: 15,
-		height: 40,
 		width: '95%',
 		borderWidth: 1,
 		borderRadius: 2,
@@ -15,6 +14,7 @@ export const styles = StyleSheet.create({
 		alignItems: 'center',
 		flexDirection: 'row',
 		paddingHorizontal: 10,
+		height: layout.searchBarHeight,
 		borderColor: colors.border.primary,
 		backgroundColor: colors.background.primary,
 	},

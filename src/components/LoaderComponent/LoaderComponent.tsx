@@ -1,7 +1,7 @@
 // vendors
 import React, { useEffect } from 'react';
 import { Feather } from '@expo/vector-icons';
-import { View, Text, Animated } from 'react-native';
+import { Text, Animated } from 'react-native';
 import { useHeaderHeight } from '@react-navigation/elements';
 
 // constants
@@ -35,12 +35,14 @@ export function Loader({ isVisible = false }: LoaderProps) {
 				...styles.container,
 				height: layout.height - headerHeight,
 			}}>
-			<Animated.View
-				style={{
-					transform: [{ rotate: rotationValue }],
-				}}>
-				<Feather name="loader" size={40} color={colors.base.black} />
-			</Animated.View>
+			<>
+				<Animated.View
+					style={{
+						transform: [{ rotate: rotationValue }],
+					}}>
+					<Feather name="loader" size={40} color={colors.base.black} />
+				</Animated.View>
+			</>
 		</Visibility>
 	);
 }
