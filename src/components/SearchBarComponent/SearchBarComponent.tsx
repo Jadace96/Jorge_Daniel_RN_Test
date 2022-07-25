@@ -3,16 +3,18 @@ import React from 'react';
 import { View, TextInput, Keyboard } from 'react-native';
 import { AntDesign, MaterialIcons } from '@expo/vector-icons';
 
+// components
+import { Visibility } from '../VisibilityComponent';
+
 // constants
 import { colors } from '../../constants';
 
 // styles
 import { styles } from './SearchBarComponentStyles';
-import { RenderIf } from '../RenderIfComponent';
 
 // types
 type SearchBarProps = {
-	value?: string;
+	value: string;
 	onChangeText: (textInputValue: string) => void;
 };
 
@@ -27,20 +29,17 @@ export function SearchBar({ value, onChangeText }: SearchBarProps) {
 				onChangeText={onChangeText}
 				placeholderTextColor={colors.text.secondary}
 			/>
-			<RenderIf
-				condition={value !== ''}
-				component={
-					<MaterialIcons
-						size={24}
-						name="clear"
-						color={colors.text.secondary}
-						onPress={() => {
-							onChangeText('');
-							Keyboard.dismiss();
-						}}
-					/>
-				}
-			/>
+			<Visibility isVisible={value !== ''}>
+				<MaterialIcons
+					size={24}
+					name="clear"
+					color={colors.text.secondary}
+					onPress={() => {
+						onChangeText('');
+						Keyboard.dismiss();
+					}}
+				/>
+			</Visibility>
 		</View>
 	);
 }

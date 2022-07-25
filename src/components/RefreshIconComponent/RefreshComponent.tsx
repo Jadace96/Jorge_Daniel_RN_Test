@@ -11,12 +11,10 @@ import { colors } from '../../constants';
 
 // styles
 import { styles } from './RefreshComponentStyles';
-import { RenderIf } from '../RenderIfComponent';
 
 type RefreshProps = {
 	text?: string;
 	textStyles: {};
-	withIcon?: boolean;
 	textOnTop?: boolean;
 	iconStyles?: Object;
 	onRefresh?: () => void;
@@ -31,7 +29,6 @@ export const Refresh = ({
 	afterRefresh,
 	stopAnimation,
 	textOnTop = true,
-	withIcon = true,
 }: RefreshProps) => {
 	const { animation, rotationValue, startAnimation } =
 		useCircularRotationAnimation({
@@ -51,27 +48,15 @@ export const Refresh = ({
 				startAnimation();
 				Keyboard.dismiss();
 			}}>
-			<RenderIf
-				condition={textOnTop}
-				component={<Text style={textStyles}>{text}</Text>}
-			/>
-			<RenderIf
-				condition={withIcon}
-				component={
-					<Animated.View
-						style={{
-							...styles.refreshIcon,
-							transform: [{ rotate: rotationValue }],
-						}}>
-						<Feather name="refresh-ccw" size={40} color={colors.base.black} />
-					</Animated.View>
-				}
-			/>
-
-			<RenderIf
-				condition={!textOnTop}
-				component={<Text style={textStyles}>{text}</Text>}
-			/>
+			{textOnTop && <Text style={textStyles}>{text}</Text>}
+			<Animated.View
+				style={{
+					...styles.refreshIcon,
+					transform: [{ rotate: rotationValue }],
+				}}>
+				<Feather name="refresh-ccw" size={40} color={colors.base.black} />
+			</Animated.View>
+			{!textOnTop && <Text style={textStyles}>{text}</Text>}
 		</TouchableOpacity>
 	);
 };

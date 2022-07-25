@@ -1,5 +1,5 @@
 export { Loader } from './LoaderComponent';
-export { RenderIf } from './RenderIfComponent';
 export { SearchBar } from './SearchBarComponent';
 export { Refresh } from './RefreshIconComponent';
+export { Visibility } from './VisibilityComponent';
 export { PokemonBox } from './PokemonBoxComponent';

@@ -12,6 +12,7 @@ import { useCircularRotationAnimation } from '../../hooks';
 
 // styles
 import { styles } from './LoaderComponentStyles';
+import { Visibility } from '../VisibilityComponent';
 
 // types
 type LoaderProps = {
@@ -28,10 +29,10 @@ export function Loader({ isVisible = false }: LoaderProps) {
 	}, [isVisible]);
 
 	return (
-		<View
-			style={{
+		<Visibility
+			isVisible={isVisible}
+			styles={{
 				...styles.container,
-				display: isVisible ? 'flex' : 'none',
 				height: layout.height - headerHeight,
 			}}>
 			<Animated.View
@@ -40,6 +41,6 @@ export function Loader({ isVisible = false }: LoaderProps) {
 				}}>
 				<Feather name="loader" size={40} color={colors.base.black} />
 			</Animated.View>
-		</View>
+		</Visibility>
 	);
 }

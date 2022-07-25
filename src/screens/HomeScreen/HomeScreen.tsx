@@ -7,7 +7,7 @@ import { getPokemonListData } from './utils';
 
 // components
 import { PokemonList } from './components';
-import { Loader, RenderIf, SearchBar, Refresh } from '../../components';
+import { Loader, Visibility, SearchBar } from '../../components';
 
 // hooks
 import { usePaginatedPokemons } from './hooks';
@@ -46,23 +46,21 @@ export const Home = () => {
 				onLoadMore={getPaginatedPokemons}
 				shouldEnableLoadMore={searchInputValue === ''}
 			/>
-			<RenderIf
-				condition={
+			<Visibility
+				isVisible={
 					pokemonListData?.length === 0 &&
 					(isPaginatedPokemonsError || searchInputValue !== '')
-				}
-				component={
-					<TouchableOpacity
-						style={styles.emptyMessageContainer}
-						onPress={() => setSearchInputValue('')}>
-						<Text style={styles.emptyMessageText}>
-							{isPaginatedPokemonsError && searchInputValue === ''
-								? 'Oops, looks like all the pokemon are resting! Wait a moment or try again by clicking here!'
-								: 'Pokemon not found!, please try another name or try again by clicking here!'}
-						</Text>
-					</TouchableOpacity>
-				}
-			/>
+				}>
+				<TouchableOpacity
+					style={styles.emptyMessageContainer}
+					onPress={() => setSearchInputValue('')}>
+					<Text style={styles.emptyMessageText}>
+						{isPaginatedPokemonsError && searchInputValue === ''
+							? 'Oops, looks like all the pokemon are resting! Wait a moment or try again by clicking here!'
+							: 'Pokemon not found!, please try another name or try again by clicking here!'}
+					</Text>
+				</TouchableOpacity>
+			</Visibility>
 		</View>
 	);
 };
