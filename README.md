@@ -18,6 +18,10 @@
 
 #### yarn test or npm test
 
+ for run all test
+
+#### yarn test:w or npm test:w
+
  for run all test with watcher option
 
 ### For run on iOS

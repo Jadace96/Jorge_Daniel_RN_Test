@@ -1,4 +1,5 @@
 // vendors
+import { FlatList } from 'react-native';
 import { fireEvent, render, screen } from '@testing-library/react-native';
 
 // screens
@@ -16,7 +17,6 @@ import { UsePaginatedPokemonsData } from '../hooks/usePaginatedPokemons';
 
 // mocks
 import { mockPokemonsDataMapped } from '../../../__mocks__/PokemonDataMocks';
-import { FlatList } from 'react-native';
 
 const mockGetPaginatedPokemons = jest.fn();
 const spyUsePaginatedPokemons = (

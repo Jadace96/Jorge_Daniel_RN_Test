@@ -3,7 +3,6 @@
 	"setupFiles": [
       "<rootDir>/jest/setup.ts"
     ],
-  "moduleFileExtensions": ["ts", "tsx", "js", "jsx"],
   "collectCoverage": true,
   "coverageReporters": ["lcov"],
   "coverageDirectory": "<rootDir>/jest/test-coverage",
