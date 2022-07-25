@@ -2,7 +2,7 @@
 import { getFilteredValues } from '../../../utils';
 
 // types
-import { PokemonDataMapped } from '../types';
+import { PokemonDataMapped } from '../../../types';
 
 export const getPokemonListData = (
 	searchInputValue: string,
