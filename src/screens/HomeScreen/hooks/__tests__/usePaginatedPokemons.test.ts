@@ -1,6 +1,9 @@
 // vendor
 import { renderHook } from '@testing-library/react-hooks';
 
+// utils
+import * as utils from '../../../../utils';
+
 // services
 import * as PokemonServices from '../../services/PokemonService';
 
@@ -8,22 +11,55 @@ import * as PokemonServices from '../../services/PokemonService';
 import { usePaginatedPokemons } from '..';
 
 // mocks
-import { mockPokemonsDataMapped } from '../../../../__mocks__/PokemonDataMocks';
+import {
+	mockCharizardData,
+	mockPokemonsDataMapped,
+} from '../../../../__mocks__/PokemonDataMocks';
+import { mockFetchSuccess } from './../../../../__mocks__/Fetch.mock';
 
-jest.mock('../../../../utils', () => ({
-	...jest.requireActual('./../../../../utils'),
-	getRange: () => [1, 6],
-}));
+const mockGetRange = () =>
+	jest.spyOn(utils, 'getRange').mockImplementation(() => [1, 6]);
+
+const mockGetPokemonById = (isSuccess = true) => {
+	jest
+		.spyOn(PokemonServices, 'getPokemonById')
+		.mockImplementation((pokemonId: number): any =>
+			isSuccess
+				? Promise.resolve(
+						mockPokemonsDataMapped.find(pokemon => pokemon.id === pokemonId),
+				  )
+				: Promise.reject(new Error('Error fetching data')),
+		);
+};
 
 describe('usePaginatedPokemons custom hook test suit', () => {
-	it('should update hook data on service success', async () => {
-		jest
-			.spyOn(PokemonServices, 'getPokemonById')
-			.mockImplementation((pokemonId: number): any =>
-				Promise.resolve(
-					mockPokemonsDataMapped.find(pokemon => pokemon.id === pokemonId),
-				),
-			);
+	beforeEach(() => {
+		jest.clearAllMocks();
+	});
+
+	it('should trigger fetch 20 times on service success', async () => {
+		mockFetchSuccess(mockCharizardData);
+		const { result, waitForNextUpdate } = renderHook(() =>
+			usePaginatedPokemons(),
+		);
+
+		expect(result.current.paginatedPokemons).toEqual([]);
+		expect(result.current.isPaginatedPokemonsError).toEqual(false);
+		expect(result.current.isLoadingPaginatedPokemons).toEqual(true);
+		expect(result.current.isPaginatedPokemonsSuccess).toEqual(false);
+
+		await waitForNextUpdate();
+
+		expect(global.fetch).toHaveBeenCalledTimes(20);
+		expect(result.current.paginatedPokemons).toHaveLength(20);
+		expect(result.current.isPaginatedPokemonsError).toEqual(false);
+		expect(result.current.isPaginatedPokemonsSuccess).toEqual(true);
+		expect(result.current.isLoadingPaginatedPokemons).toEqual(false);
+	});
+
+	it('should update hook data correctly on service success', async () => {
+		mockGetRange();
+		mockGetPokemonById(true);
 
 		const { result, waitForNextUpdate } = renderHook(() =>
 			usePaginatedPokemons(),
@@ -42,12 +78,8 @@ describe('usePaginatedPokemons custom hook test suit', () => {
 		expect(result.current.paginatedPokemons).toEqual(mockPokemonsDataMapped);
 	});
 
-	it('should update hook data on service fails', async () => {
-		jest
-			.spyOn(PokemonServices, 'getPokemonById')
-			.mockImplementation(() =>
-				Promise.reject(new Error('Error fetching data')),
-			);
+	it('should update hook data correctly on service fails', async () => {
+		mockGetPokemonById(false);
 
 		const { result, waitForNextUpdate } = renderHook(() =>
 			usePaginatedPokemons(),
