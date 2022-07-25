@@ -51,7 +51,7 @@ export function PokemonList({
 				</TouchableHighlight>
 			)}
 			onEndReachedThreshold={0.5}
-			onEndReached={shouldEnableLoadMore ? onLoadMore : null}
+			onEndReached={() => (shouldEnableLoadMore ? onLoadMore() : null)}
 		/>
 	);
 }

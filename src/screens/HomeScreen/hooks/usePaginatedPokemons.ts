@@ -10,7 +10,15 @@ import { getPokemonById } from '../services';
 // types
 import { PokemonDataMapped } from '../../../types';
 
-export const usePaginatedPokemons = () => {
+export type UsePaginatedPokemonsData = {
+	getPaginatedPokemons: () => void;
+	isPaginatedPokemonsError: boolean;
+	isLoadingPaginatedPokemons: boolean;
+	isPaginatedPokemonsSuccess: boolean;
+	paginatedPokemons: Array<PokemonDataMapped> | [];
+};
+
+export const usePaginatedPokemons = (): UsePaginatedPokemonsData => {
 	const [isPaginatedPokemonsSuccess, setIsPaginatedPokemonsSuccess] =
 		useState(false);
 	const [isPaginatedPokemonsError, setIsPaginatedPokemonsError] =
