@@ -22,7 +22,7 @@ type PokemonBoxProps = PokemonDataMapped & {
 	showFullDetails?: boolean;
 };
 
-function PokemonBoxComponent({
+export function PokemonBox({
 	id,
 	name,
 	types,
@@ -77,5 +77,3 @@ function PokemonBoxComponent({
 		</View>
 	);
 }
-
-export const PokemonBox = memo(PokemonBoxComponent);

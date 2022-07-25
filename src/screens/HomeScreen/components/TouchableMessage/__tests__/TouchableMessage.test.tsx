@@ -1,5 +1,5 @@
 // vendors
-import { FlatList, TouchableHighlight, TouchableOpacity } from 'react-native';
+import { TouchableOpacity } from 'react-native';
 import { fireEvent, render, screen } from '@testing-library/react-native';
 
 // components
