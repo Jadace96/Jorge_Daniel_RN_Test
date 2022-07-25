@@ -33,10 +33,6 @@ const mockGetPokemonById = (isSuccess = true) => {
 };
 
 describe('usePaginatedPokemons custom hook test suit', () => {
-	beforeEach(() => {
-		jest.clearAllMocks();
-	});
-
 	it('should trigger fetch 20 times on service success', async () => {
 		mockFetchSuccess(mockCharizardData);
 		const { result, waitForNextUpdate } = renderHook(() =>
