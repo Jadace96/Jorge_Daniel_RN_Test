@@ -4,7 +4,7 @@ import { Feather } from '@expo/vector-icons';
 import { Text, Animated, TouchableOpacity, Keyboard } from 'react-native';
 
 // hooks
-import { useTimingAnimation } from '../../hooks';
+import { useCircularRotationAnimation } from '../../hooks';
 
 // constants
 import { colors } from '../../constants';
@@ -33,10 +33,12 @@ export const Refresh = ({
 	textOnTop = true,
 	withIcon = true,
 }: RefreshProps) => {
-	const { animation, rotateValue, startAnimation } = useTimingAnimation({
-		onStartAnimation: onRefresh,
-		onFinishAnimation: afterRefresh,
-	});
+	const { animation, rotationValue, startAnimation } =
+		useCircularRotationAnimation({
+			speed: 'fast',
+			onStartAnimation: onRefresh,
+			onFinishAnimation: afterRefresh,
+		});
 
 	useEffect(() => {
 		stopAnimation && animation.setValue(0);
@@ -59,7 +61,7 @@ export const Refresh = ({
 					<Animated.View
 						style={{
 							...styles.refreshIcon,
-							transform: [{ rotate: rotateValue }],
+							transform: [{ rotate: rotationValue }],
 						}}>
 						<Feather name="refresh-ccw" size={40} color={colors.base.black} />
 					</Animated.View>

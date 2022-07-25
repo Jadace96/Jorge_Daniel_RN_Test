@@ -10,7 +10,7 @@ export const styles = StyleSheet.create({
 	},
 	emptyMessageContainer: {
 		alignItems: 'center',
-		paddingHorizontal: 10,
+		paddingHorizontal: 15,
 	},
 	emptyMessageText: {
 		fontSize: 18,

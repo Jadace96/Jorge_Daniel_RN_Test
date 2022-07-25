@@ -1,6 +1,6 @@
 // vendors
-import { View } from 'react-native';
 import React, { useMemo, useState } from 'react';
+import { TouchableOpacity, View, Text } from 'react-native';
 
 // utils
 import { getPokemonListData } from './utils';
@@ -16,14 +16,13 @@ import { usePaginatedPokemons } from './hooks';
 import { styles } from './HomeScreenStyles';
 
 // types
-import { PokemonDataMapped } from './types';
+import { PokemonDataMapped } from '../../types';
 
 export const Home = () => {
 	const {
 		paginatedPokemons,
 		getPaginatedPokemons,
 		isPaginatedPokemonsError,
-		isPaginatedPokemonsSuccess,
 		isLoadingPaginatedPokemons,
 	} = usePaginatedPokemons();
 
@@ -41,7 +40,7 @@ export const Home = () => {
 	return (
 		<View style={styles.container}>
 			<SearchBar value={searchInputValue} onChangeText={setSearchInputValue} />
-			<RenderIf component={<Loader />} condition={isLoadingPaginatedPokemons} />
+			<Loader isVisible={isLoadingPaginatedPokemons} />
 			<PokemonList
 				data={pokemonListData}
 				onLoadMore={getPaginatedPokemons}
@@ -53,17 +52,15 @@ export const Home = () => {
 					(isPaginatedPokemonsError || searchInputValue !== '')
 				}
 				component={
-					<Refresh
-						withIcon={false}
-						textStyles={styles.emptyMessageText}
-						onRefresh={() => setSearchInputValue('')}
-						stopAnimation={isPaginatedPokemonsSuccess}
-						text={
-							isPaginatedPokemonsError && searchInputValue === ''
+					<TouchableOpacity
+						style={styles.emptyMessageContainer}
+						onPress={() => setSearchInputValue('')}>
+						<Text style={styles.emptyMessageText}>
+							{isPaginatedPokemonsError && searchInputValue === ''
 								? 'Oops, looks like all the pokemon are resting! Wait a moment or try again by clicking here!'
-								: 'Pokemon not found!, please try another name or try again by clicking here!'
-						}
-					/>
+								: 'Pokemon not found!, please try another name or try again by clicking here!'}
+						</Text>
+					</TouchableOpacity>
 				}
 			/>
 		</View>

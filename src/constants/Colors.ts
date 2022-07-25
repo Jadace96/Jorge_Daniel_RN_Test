@@ -1,8 +1,10 @@
 const base = {
 	red: '#FF0000',
 	grey: '#C5CBCF',
+	blue: '#0089E0',
 	black: '#000000',
 	white: '#ffffff',
+	darkGrey: '#9b9d9e',
 };
 
 const alert = {
@@ -18,7 +20,7 @@ const background = {
 	primary: base.white,
 	secondary: base.grey,
 	button: {
-		navigation: '#0089E0',
+		navigation: base.blue,
 	},
 };
 

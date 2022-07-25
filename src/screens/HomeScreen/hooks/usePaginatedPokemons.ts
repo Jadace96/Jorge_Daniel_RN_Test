@@ -8,7 +8,7 @@ import { getRange } from '../../../utils';
 import { getPokemonById } from '../services';
 
 // types
-import { PokemonDataMapped } from '../types';
+import { PokemonDataMapped } from '../../../types';
 
 export const usePaginatedPokemons = () => {
 	const [isPaginatedPokemonsSuccess, setIsPaginatedPokemonsSuccess] =

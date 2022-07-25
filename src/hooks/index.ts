@@ -1,1 +1,1 @@
-export { useTimingAnimation } from './useTimingAnimation';
+export { useCircularRotationAnimation } from './useCircularRotationAnimation';

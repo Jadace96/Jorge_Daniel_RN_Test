@@ -1,7 +1,7 @@
 // vendors
 import React from 'react';
-import { FlatList, TouchableHighlight } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { FlatList, TouchableHighlight } from 'react-native';
 
 // components
 import { PokemonBox } from '../../../../components';
