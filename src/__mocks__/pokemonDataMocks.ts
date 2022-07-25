@@ -51,19 +51,6 @@ export const mockCharizardData = {
 				name: 'mega-punch',
 				url: 'https://pokeapi.co/api/v2/move/5/',
 			},
-			version_group_details: [
-				{
-					level_learned_at: 0,
-					move_learn_method: {
-						name: 'machine',
-						url: 'https://pokeapi.co/api/v2/move-learn-method/4/',
-					},
-					version_group: {
-						name: 'red-blue',
-						url: 'https://pokeapi.co/api/v2/version-group/1/',
-					},
-				},
-			],
 		},
 	],
 	name: 'charizard',
@@ -173,19 +160,6 @@ export const mockBulbasaurData = {
 	moves: [
 		{
 			move: { name: 'razor-wind', url: 'https://pokeapi.co/api/v2/move/13/' },
-			version_group_details: [
-				{
-					level_learned_at: 0,
-					move_learn_method: {
-						name: 'egg',
-						url: 'https://pokeapi.co/api/v2/move-learn-method/2/',
-					},
-					version_group: {
-						name: 'gold-silver',
-						url: 'https://pokeapi.co/api/v2/version-group/3/',
-					},
-				},
-			],
 		},
 	],
 	name: 'bulbasaur',
@@ -208,10 +182,6 @@ export const mockBulbasaurData = {
 			home: {
 				front_default:
 					'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/1.png',
-			},
-			'official-artwork': {
-				front_default:
-					'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png',
 			},
 		},
 		versions: {

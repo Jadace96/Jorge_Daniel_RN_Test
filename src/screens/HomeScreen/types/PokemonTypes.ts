@@ -23,30 +23,25 @@ export type PokemonDataProps = {
 	location_area_encounters: string;
 	moves: Array<{
 		move: NameUrlObj;
-		version_group_details: {
+		version_group_details?: {
 			level_learned_at: number;
 			move_learn_method: NameUrlObj;
 		};
-		version_group: NameUrlObj;
+		version_group?: NameUrlObj;
 	}>;
 	name: string;
-	order: 1;
+	order: number;
 	past_types: Array<{}>;
 	species: NameUrlObj;
 	sprites: {
 		back_default: string;
 		back_shiny: string;
 		front_default: string;
-		front_shiny: string;
 		other: {
 			dream_world: {
 				front_default: string;
 			};
 			home: {
-				front_default: string;
-				front_shiny: string;
-			};
-			'official-artwork': {
 				front_default: string;
 			};
 		};
