@@ -159,4 +159,22 @@ describe('Home screen test suit', () => {
 
 		expect(mockGetPaginatedPokemons).not.toHaveBeenCalled();
 	});
+
+	it('should clear search input', () => {
+		spyUsePaginatedPokemons({
+			paginatedPokemons: mockPokemonsDataMapped,
+		});
+
+		render(<Home />);
+
+		const SearchBarComponent = screen.container.findByType(SearchBar);
+		fireEvent.changeText(SearchBarComponent, 'cha');
+
+		expect(SearchBarComponent.props.value).toEqual('cha');
+
+		const EmptyMessage = screen.container.findByType(TouchableMessage);
+		fireEvent.press(EmptyMessage);
+
+		expect(SearchBarComponent.props.value).toEqual('');
+	});
 });
