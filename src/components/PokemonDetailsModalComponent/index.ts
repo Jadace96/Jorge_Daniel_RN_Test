@@ -1,0 +1,1 @@
+export { PokemonDetailsModal } from './PokemonDetailsModalComponent';

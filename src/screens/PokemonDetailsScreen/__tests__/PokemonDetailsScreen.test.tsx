@@ -25,7 +25,7 @@ describe('PokemonDetails screen test suit', () => {
 		const PokemonBoxComponent = screen.container.findByType(PokemonBox);
 
 		expect(PokemonBoxComponent.props).toEqual({
-			...mockPokemonsDataMapped[0],
+			pokemonData: mockPokemonsDataMapped[0],
 			showFullDetails: true,
 		});
 	});

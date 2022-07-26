@@ -1,23 +1,18 @@
 // vendors
 import { FlatList, TouchableHighlight } from 'react-native';
-import { fireEvent, render, screen } from '@testing-library/react-native';
+import {
+	fireEvent,
+	render,
+	screen,
+	waitFor,
+} from '@testing-library/react-native';
 
 // components
 import { PokemonList } from '../PokemonList';
+import { PokemonDetailsModal } from '../../../../../components';
 
 // mocks
 import { mockPokemonsDataMapped } from '.././../../../../__mocks__/PokemonDataMocks';
-
-const mockGoBack = jest.fn();
-const mockNavigate = jest.fn();
-
-jest.mock('@react-navigation/native', () => ({
-	...jest.requireActual('@react-navigation/native'),
-	useNavigation: () => ({
-		goBack: mockGoBack,
-		navigate: mockNavigate,
-	}),
-}));
 
 const mockProps = {
 	onLoadMore: jest.fn(),
@@ -55,7 +50,16 @@ describe('PokemonList test suit', () => {
 		expect(mockProps.onLoadMore).toHaveBeenCalledTimes(1);
 	});
 
-	it('should trigger navigation navigate', () => {
+	it('should not show PokemonDetailsModal component', () => {
+		render(<PokemonList {...mockProps} />);
+
+		const PokemonDetailsModalComponent =
+			screen.container.findByType(PokemonDetailsModal);
+
+		expect(PokemonDetailsModalComponent.props.visible).toBeFalsy();
+	});
+
+	it('should show PokemonDetailsModal and then close it.', () => {
 		render(<PokemonList {...mockProps} />);
 
 		const ListItemComponent =
@@ -63,6 +67,15 @@ describe('PokemonList test suit', () => {
 
 		fireEvent.press(ListItemComponent);
 
-		expect(mockNavigate).toHaveBeenCalledTimes(1);
+		const PokemonDetailsModalComponent =
+			screen.container.findByType(PokemonDetailsModal);
+
+		expect(PokemonDetailsModalComponent.props.isVisible).toBe(true);
+		expect(PokemonDetailsModalComponent.props.data).toEqual(mockProps.data[0]);
+
+		waitFor(() => PokemonDetailsModalComponent.props.onClose());
+
+		expect(PokemonDetailsModalComponent.props.data).toEqual({});
+		expect(PokemonDetailsModalComponent.props.isVisible).toBe(false);
 	});
 });

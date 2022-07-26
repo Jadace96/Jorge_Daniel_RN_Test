@@ -1,13 +1,9 @@
 // vendors
-import React from 'react';
-import { useNavigation } from '@react-navigation/native';
+import React, { useState } from 'react';
 import { FlatList, TouchableHighlight } from 'react-native';
 
 // components
-import { PokemonBox } from '../../../../components';
-
-// constants
-import { PATHS } from '../../../../constants';
+import { PokemonDetailsModal, PokemonBox } from '../../../../components';
 
 // styles
 import { styles } from './PokemonListStyles';
@@ -26,32 +22,36 @@ export function PokemonList({
 	onLoadMore,
 	shouldEnableLoadMore = true,
 }: PokemonListProps) {
-	const navigation = useNavigation();
-
-	const onPressPokemonBox = (pokemonDetails: PokemonDataMapped) =>
-		navigation.navigate(
-			PATHS.POKEMON_DETAILS as never,
-			{ pokemonDetails } as never,
-		);
+	const [selectedPokemon, setSelectedPokemon] = useState<
+		PokemonDataMapped | {}
+	>({});
 
 	return (
-		<FlatList
-			data={data}
-			numColumns={2}
-			style={styles.container}
-			keyExtractor={item => item.id.toString()}
-			columnWrapperStyle={styles.columnWrapper}
-			contentContainerStyle={styles.contentContainer}
-			renderItem={({ item }) => (
-				<TouchableHighlight
-					key={item.id}
-					style={styles.boxContainer}
-					onPress={() => onPressPokemonBox(item)}>
-					<PokemonBox {...item} />
-				</TouchableHighlight>
-			)}
-			onEndReachedThreshold={0.5}
-			onEndReached={() => (shouldEnableLoadMore ? onLoadMore() : null)}
-		/>
+		<>
+			<PokemonDetailsModal
+				onClose={() => setSelectedPokemon({})}
+				data={selectedPokemon as PokemonDataMapped}
+				isVisible={Object.keys(selectedPokemon)?.length > 0}
+			/>
+
+			<FlatList
+				data={data}
+				numColumns={2}
+				style={styles.container}
+				keyExtractor={item => item.id.toString()}
+				columnWrapperStyle={styles.columnWrapper}
+				contentContainerStyle={styles.contentContainer}
+				renderItem={({ item }) => (
+					<TouchableHighlight
+						key={item.id}
+						style={styles.boxContainer}
+						onPress={() => setSelectedPokemon(item)}>
+						<PokemonBox pokemonData={item} />
+					</TouchableHighlight>
+				)}
+				onEndReachedThreshold={0.5}
+				onEndReached={() => (shouldEnableLoadMore ? onLoadMore() : null)}
+			/>
+		</>
 	);
 }

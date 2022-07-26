@@ -10,7 +10,7 @@ import { Navigation } from './navigation';
 function App() {
 	return (
 		<SafeAreaProvider>
-			<StatusBar />
+			<StatusBar style="dark" />
 			<Navigation />
 		</SafeAreaProvider>
 	);

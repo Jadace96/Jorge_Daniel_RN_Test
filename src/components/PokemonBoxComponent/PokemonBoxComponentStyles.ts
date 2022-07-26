@@ -5,16 +5,13 @@ import { StyleSheet } from 'react-native';
 import { darkenHexColor, getRandomBackgroundAndBorderColor } from '../../utils';
 
 // constants
-import { colors, layout } from './../../constants';
+import { colors } from './../../constants';
 
 export const styles = StyleSheet.create({
 	container: {
 		borderWidth: 3,
 		paddingBottom: 10,
 		alignItems: 'center',
-	},
-	fullHeight: {
-		height: layout.height,
 	},
 	image: {
 		width: 130,
@@ -64,8 +61,7 @@ export const styles = StyleSheet.create({
 	},
 });
 
-export const getContainerStyles = (showFullDetails = false) => ({
+export const getContainerStyles = () => ({
 	...styles.container,
-	...(showFullDetails && styles.fullHeight),
 	...getRandomBackgroundAndBorderColor(),
 });

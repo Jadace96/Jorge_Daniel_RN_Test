@@ -1,5 +1,5 @@
 // vendors
-import React, { memo, useState } from 'react';
+import React, { useState } from 'react';
 import {
 	View,
 	Text,
@@ -18,45 +18,42 @@ import { styles, getContainerStyles } from './PokemonBoxComponentStyles';
 // types
 import { PokemonDataMapped } from '../../types';
 
-type PokemonBoxProps = PokemonDataMapped & {
+type PokemonBoxProps = {
 	showFullDetails?: boolean;
+	pokemonData: PokemonDataMapped;
 };
 
 export function PokemonBox({
-	id,
-	name,
-	types,
-	imgUri,
-	weight,
-	sprites,
-	movements,
+	pokemonData,
 	showFullDetails = false,
 }: PokemonBoxProps) {
 	const headerHeight = useHeaderHeight();
-	const [mainImage, setMainImage] = useState(imgUri);
+	const [mainImage, setMainImage] = useState(pokemonData?.imgUri);
 
 	return (
-		<View style={getContainerStyles(showFullDetails)}>
+		<View style={getContainerStyles()}>
 			<Image
 				source={{ uri: mainImage }}
 				style={showFullDetails ? styles.fullImage : styles.image}
 			/>
-			<Text style={styles.text}># {id}</Text>
-			<Text style={styles.text}>{capitalizeFirstLetter(name)}</Text>
+			<Text style={styles.text}># {pokemonData?.id}</Text>
+			<Text style={styles.text}>
+				{capitalizeFirstLetter(pokemonData?.name)}
+			</Text>
 			{showFullDetails && (
 				<ScrollView
 					style={styles.fullDetailsContainer}
 					contentContainerStyle={{ paddingBottom: headerHeight }}>
 					<Text style={styles.text}>Types</Text>
-					<Text style={styles.smalText}>{types?.join(', ')}</Text>
+					<Text style={styles.smalText}>{pokemonData?.types?.join(', ')}</Text>
 					<Text style={styles.text}>Weight</Text>
-					<Text style={styles.smalText}>{weight}kg</Text>
+					<Text style={styles.smalText}>{pokemonData?.weight}kg</Text>
 					<Text style={styles.text}>Sprites</Text>
 					<ScrollView
 						horizontal
 						style={styles.horizontalScrollContainer}
 						contentContainerStyle={styles.horizontalScrollContentContainer}>
-						{[imgUri, ...sprites].map(sprite => (
+						{[pokemonData?.imgUri, ...pokemonData?.sprites].map(sprite => (
 							<TouchableHighlight
 								key={sprite}
 								style={styles.spriteContainer}
@@ -70,7 +67,9 @@ export function PokemonBox({
 						horizontal
 						style={styles.horizontalScrollContainer}
 						contentContainerStyle={styles.horizontalScrollContentContainer}>
-						<Text style={styles.smalText}>{movements?.join(', ')}</Text>
+						<Text style={styles.smalText}>
+							{pokemonData?.movements?.join(', ')}
+						</Text>
 					</ScrollView>
 				</ScrollView>
 			)}

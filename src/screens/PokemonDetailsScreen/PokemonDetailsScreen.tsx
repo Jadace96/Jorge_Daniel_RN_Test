@@ -19,7 +19,7 @@ type PokemonDetailsProps = {
 export function PokemonDetails({ route }: PokemonDetailsProps) {
 	return (
 		<View style={styles.scrollContainer}>
-			<PokemonBox {...route.params.pokemonDetails} showFullDetails />
+			<PokemonBox showFullDetails pokemonData={route.params.pokemonDetails} />
 		</View>
 	);
 }

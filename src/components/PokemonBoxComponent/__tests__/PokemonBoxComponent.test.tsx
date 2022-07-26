@@ -10,8 +10,8 @@ import { mockPokemonsDataMapped } from '../../../__mocks__/PokemonDataMocks';
 
 const mockPokemonData = mockPokemonsDataMapped[1];
 const mockProps = {
-	...mockPokemonData,
 	showFullDetails: true,
+	pokemonData: mockPokemonData,
 };
 
 describe('PokemonBox component test suit', () => {

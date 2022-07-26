@@ -27,7 +27,7 @@ export function RootNavigator() {
 				name={PATHS.HOME as never}
 				component={Home}
 				options={{
-					title: 'Pokemon List',
+					title: 'Pokemon',
 					headerTitleAlign: 'center',
 				}}
 			/>
@@ -35,7 +35,7 @@ export function RootNavigator() {
 				name={PATHS.POKEMON_DETAILS as never}
 				component={PokemonDetails}
 				options={{
-					title: 'Pokemon Details',
+					title: 'Details',
 					headerTitleAlign: 'center',
 					headerLeft: () => (
 						<AntDesign

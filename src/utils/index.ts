@@ -39,7 +39,7 @@ export const getRandomBackgroundAndBorderColor =
 	};
 
 export const capitalizeFirstLetter = (word: string): string =>
-	word.charAt(0).toUpperCase() + word.slice(1);
+	word?.charAt(0).toUpperCase() + word?.slice(1);
 
 export const getRange = (start = 1, end = start + 19): Array<number> =>
 	[...Array(end - start + 1).keys()].map(key => key + start);
@@ -48,7 +48,9 @@ export const getFilteredValues = ({
 	data,
 	valueToFilter,
 	keyToFilter = 'name',
-}: types.GetFilteredValuesByName): Array<types.GetFilteredValuesByNameDataItem> | [] => {
+}: types.GetFilteredValuesByName):
+	| Array<types.GetFilteredValuesByNameDataItem>
+	| [] => {
 	if (data?.length === 0 || valueToFilter === '') return [];
 
 	const filteredData = data?.filter(
