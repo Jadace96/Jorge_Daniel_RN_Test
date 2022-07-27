@@ -37,7 +37,7 @@ export function RootNavigator() {
 					...commonBottomTabOptions,
 					tabBarIcon: () => (
 						<MaterialCommunityIcons
-							size={28}
+							size={25}
 							name="pokemon-go"
 							color={colors.base.black}
 						/>
@@ -52,7 +52,7 @@ export function RootNavigator() {
 					...commonBottomTabOptions,
 					tabBarIcon: () => (
 						<MaterialIcons
-							size={28}
+							size={25}
 							name="favorite-border"
 							color={colors.base.black}
 						/>

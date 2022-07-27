@@ -2,7 +2,7 @@
 import { StyleSheet } from 'react-native';
 
 // utils
-import { darkenHexColor, getRandomBackgroundAndBorderColor } from '../../utils';
+import { darkenHexColor } from '../../utils';
 
 // constants
 import { colors } from './../../constants';
@@ -59,9 +59,19 @@ export const styles = StyleSheet.create({
 		width: '100%',
 		height: '100%',
 	},
+	favoriteIconContainer: {
+		right: 0,
+		padding: 5,
+		position: 'absolute',
+	},
+	favoriteIconFullDetailsContainer: {
+		left: 0,
+		padding: 15,
+		position: 'absolute',
+	},
 });
 
 export const getContainerStyles = () => ({
 	...styles.container,
-	...getRandomBackgroundAndBorderColor(),
+	// ...getRandomBackgroundAndBorderColor(),
 });

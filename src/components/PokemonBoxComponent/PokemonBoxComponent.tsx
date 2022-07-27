@@ -10,13 +10,18 @@ import {
 import { useHeaderHeight } from '@react-navigation/elements';
 
 // utils
-import { capitalizeFirstLetter } from '../../utils';
+import {
+	darkenHexColor,
+	capitalizeFirstLetter,
+	getRandomLightHexColor,
+} from '../../utils';
 
 // styles
-import { styles, getContainerStyles } from './PokemonBoxComponentStyles';
+import { styles } from './PokemonBoxComponentStyles';
 
 // types
 import { PokemonDataMapped } from '../../types';
+import { FavoriteIcon } from '../FavoriteIconComponents';
 
 type PokemonBoxProps = {
 	showFullDetails?: boolean;
@@ -30,8 +35,23 @@ export function PokemonBox({
 	const headerHeight = useHeaderHeight();
 	const [mainImage, setMainImage] = useState(pokemonData?.imgUri);
 
+	const boxMainColor = getRandomLightHexColor();
+
 	return (
-		<View style={getContainerStyles()}>
+		<View
+			style={{
+				...styles.container,
+				backgroundColor: boxMainColor,
+				borderColor: darkenHexColor(boxMainColor),
+			}}>
+			<View
+				style={
+					showFullDetails
+						? styles.favoriteIconFullDetailsContainer
+						: styles.favoriteIconContainer
+				}>
+				<FavoriteIcon color={darkenHexColor(boxMainColor, -80)} />
+			</View>
 			<Image
 				source={{ uri: mainImage }}
 				style={showFullDetails ? styles.fullImage : styles.image}
