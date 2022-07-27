@@ -5,5 +5,6 @@ type Paths = {
 
 export const PATHS: Paths = {
 	HOME: '/home',
+	FAVORITES: '/favorites',
 	POKEMON_DETAILS: '/pokemon-details',
 };

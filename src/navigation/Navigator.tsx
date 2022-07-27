@@ -1,52 +1,64 @@
 // vendors
 import React from 'react';
-import { AntDesign } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import {
+	createBottomTabNavigator,
+	BottomTabNavigationOptions,
+} from '@react-navigation/bottom-tabs';
+import { MaterialIcons, MaterialCommunityIcons } from '@expo/vector-icons';
 
 // constants
-import { PATHS } from '../constants';
-
-// types
-export type RootStackParamList = {
-	Home: undefined;
-	PokemonDetails: undefined;
-};
+import { colors, PATHS } from '../constants';
 
 // screens
-import { Home, PokemonDetails } from '../screens';
+import { Home, Favorites } from '../screens';
 
-const Stack = createNativeStackNavigator<RootStackParamList>();
+const Tab = createBottomTabNavigator();
+
+const commonBottomTabOptions: BottomTabNavigationOptions = {
+	headerTitleAlign: 'center',
+	tabBarStyle: {
+		height: 50,
+	},
+	tabBarLabelStyle: {
+		fontSize: 13,
+		marginBottom: 3,
+		color: colors.base.black,
+	},
+};
 
 export function RootNavigator() {
-	const navigation = useNavigation();
-
 	return (
-		<Stack.Navigator>
-			<Stack.Screen
-				name={PATHS.HOME as never}
+		<Tab.Navigator>
+			<Tab.Screen
 				component={Home}
+				name={PATHS.HOME}
 				options={{
-					title: 'Pokemon',
-					headerTitleAlign: 'center',
-				}}
-			/>
-			<Stack.Screen
-				name={PATHS.POKEMON_DETAILS as never}
-				component={PokemonDetails}
-				options={{
-					title: 'Details',
-					headerTitleAlign: 'center',
-					headerLeft: () => (
-						<AntDesign
-							size={24}
-							name="left"
-							onPress={navigation.goBack}
-							style={{ left: -10, padding: 10 }}
+					title: 'Home',
+					...commonBottomTabOptions,
+					tabBarIcon: () => (
+						<MaterialCommunityIcons
+							size={28}
+							name="pokemon-go"
+							color={colors.base.black}
 						/>
 					),
 				}}
 			/>
-		</Stack.Navigator>
+			<Tab.Screen
+				component={Favorites}
+				name={PATHS.FAVORITES}
+				options={{
+					title: 'Favorites',
+					...commonBottomTabOptions,
+					tabBarIcon: () => (
+						<MaterialIcons
+							size={28}
+							name="favorite-border"
+							color={colors.base.black}
+						/>
+					),
+				}}
+			/>
+		</Tab.Navigator>
 	);
 }
